@@ -105,4 +105,29 @@ p {
   .main-wrap .details-wrap {
     height: 500px; }
 
+.wavy-shmavy {
+  width: 100%;
+  bottom: 0;
+  position: relative;
+  display: block;
+  background-color: #f3f1f1;
+  height: 230px; }
+  .wavy-shmavy .wavy {
+    position: absolute;
+    width: 100%;
+    height: 230px;
+    background-position: bottom center;
+    background-size: auto 230px;
+    background-repeat: repeat-x;
+    transform: translate3d(0px, 0px, 0px); }
+  .wavy-shmavy #wave-3 {
+    background-image: url("../images/waves-3.png");
+    z-index: 6; }
+  .wavy-shmavy #wave-2 {
+    background-image: url("../images/waves-2.png");
+    z-index: 7; }
+  .wavy-shmavy #wave-1 {
+    background-image: url("../images/waves-1.png");
+    z-index: 8; }
+
 /*# sourceMappingURL=styles.css.map */
