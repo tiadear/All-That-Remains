@@ -35,16 +35,17 @@ p {
 
 .landscape-wrap {
 	width: 100%;
+	padding-top: 0px;
 	position: relative;
 	display: block;
-	height: 1000px;
+	height: 1600px;
 
 	.landscape {
 		position: fixed;
 		width: 100%;
-		height: 1500px;
+		height: 1650px;
 		background-position: bottom center;
-	    background-size: auto 1500px;
+	    background-size: auto 1650px;
 	    background-repeat: repeat-x;
 	    transform: translate3d(0px, 0px, 0px);
 	}
@@ -72,6 +73,12 @@ p {
 	.logo {
 		width: 200px;
 		margin: 0 auto;
+		padding-top: 30px;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 }
 
@@ -92,7 +99,7 @@ p {
 	}
 
 	.trailer-wrap {
-		padding-top: 500px;
+		padding-top: 50px;
 		text-align: center;
 
 		.trailer-container{
@@ -133,12 +140,92 @@ p {
 	}	
 }
 
+.fog {
+	width: 100%;
+	position: relative;
+	z-index: 10;
+
+	.foggy-woggy {
+		width: 100%;
+		height: 2000px;
+		top: 0px;
+		position: fixed;
+		animation: foggy 10s alternate linear infinite;
+		-webkit-animation: foggy 10s alternate linear infinite;
+		-ms-animation: foggy 10s alternate linear infinite;
+	}
+
+	#fog-1 {
+		background-image: url('../images/fog-02.png');
+		z-index: 11;
+	}
+	#fog-2 {
+		background-image: url('../images/fog-03.png');
+		z-index: 12;
+	}
+	#fog-3 {
+		background-image: url('../images/fog-04.png');
+		z-index: 13;
+	}
+	#fog-4 {
+		background-image: url('../images/fog-05.png');
+		z-index: 14;
+	}
+	#fog-5 {
+		background-image: url('../images/fog-06.png');
+		z-index: 15;
+	}
+	#fog-6 {
+		background-image: url('../images/fog-07.png');
+		z-index: 16;
+	}
+	#fog-7 {
+		background-image: url('../images/fog-08.png');
+		z-index: 17;
+	}
+	#fog-8 {
+		background-image: url('../images/fog-09.png');
+		z-index: 18;
+	}
+	#fog-9 {
+		background-image: url('../images/fog-10.png');
+		z-index: 19;
+	}
+	#fog-10 {
+		background-image: url('../images/fog-11.png');
+		z-index: 20;
+	}
+	#fog-11 {
+		background-image: url('../images/fog-12.png');
+		z-index: 21;
+	}
+	#fog-12 {
+		background-image: url('../images/fog-13.png');
+		z-index: 22;
+	}
+}
+
+@-webkit-keyframes foggy {
+	0%   {
+		-webkit-transform: translate3d(0, 0) ;
+		-ms-transform: translate3d(0, 0) ;
+		transform: translate3d(0, 0) ;
+	}
+	100% {
+		-webkit-transform: translate3d(0, 0) ;
+		-ms-transform: translate3d(0, 0) ;
+		transform: translate3d(0, 0) ;
+	}
+}
+
+
 .wavy-shmavy {
 	width: 100%;
 	bottom: 0;
 	position: relative;
 	display: block;
 	background-color: $notwhite;
+	z-index: 6;
 	height: 230px;
 
 	.wavy {
@@ -153,17 +240,17 @@ p {
 
 	#wave-3 {
 		background-image: url('../images/waves-3.png');
-		z-index: 6;
+		z-index: 7;
 	}
 	
 	#wave-2 {
 		background-image: url('../images/waves-2.png');
-		z-index: 7;
+		z-index: 8;
 	}
 
 	#wave-1 {
 		background-image: url('../images/waves-1.png');
-		z-index: 8;
+		z-index: 9;
 	}
 	
 }
