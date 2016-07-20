@@ -13,78 +13,111 @@
 
 	<script type='text/javascript' src='js/jquery-1.11.3.min.js'></script>
 	<script type='text/javascript' src='js/jquery-ui.js'></script>
-	<script type='text/javascript' src='js/script.js'></script>
+	<script type='text/javascript' src='js/foggy.js'></script>
 
 </head>
-	<body>
-		<header>
-		</header>
+	<body onload="cloudywoudy();">
 
-		<div class='landscape-wrap'>
-			<div class='landscape' id='l5'></div>
-			<div class='landscape' id='l4'></div>
-			<div class='landscape' id='l3'></div>
-			<div class='landscape' id='l2'></div>
-			<div class='landscape' id='l1'></div>
-			<div class="logo">
-				<img src="images/logo-fog.png" alt="logo">
-			</div>
+		<div id="loading">
+			<canvas id="canvas" width="400" height="250" style="display: none"></canvas>
+		    <canvas id="canvas3" width="800" height="500" style="display: none"></canvas>
+		   	<canvas id="canvas2" width="800" height="500"></canvas>
 		</div>
 
-		<div class="main-wrap">
-
-			<div class="trailer-wrap">
-				<h4>trailer</h4>
-				<div class="trailer-container">
-				</div>
-			</div>
-
-			<div class="overview-wrap">
-				<h4>overview</h4>
-				<p>All That Remains is a first person narrative experience in which the player experiences the story through the characters memories. It is set in a possible near future where most people have left for a cleaner planet, and because of this consumption of the earths resources has skyrocketed. The few that stayed behind to live out their life are now dwindling, suffering a thick poisonous smog and rogue force send back to quell those that tried to fight against the careless destruction.</p>
-			</div>
-
-			<div class="screenshot-wrap">
-				<h4>screenshots</h4>
-				<div class="screenshot">
-					<img src="images/ATR_SS01.jpg" id="screen-1" alt="game screenshot 1">
-				</div>
-				<div class="screenshot">
-					<img src="images/ATR_SS02.jpg" id="screen-2" alt="game screenshot 2">
-				</div>
-				<div class="screenshot">
-					<img src="images/ATR_SS03.jpg" id="screen-3" alt="game screenshot 3">
-				</div>
-				<div class="screenshot">
-					<img src="images/ATR_SS06.jpg" id="screen-4" alt="game screenshot 4">
-				</div>
-			</div>
-
-			<div class="details-wrap">
-			</div>
-
-		</div><!--end of main wrap-->
-
-		<div class="fog">
-			<div class="foggy-woggy" id="fog-1"></div>
-			<div class="foggy-woggy" id="fog-2"></div>
-			<div class="foggy-woggy" id="fog-3"></div>
-			<div class="foggy-woggy" id="fog-4"></div>
-			<div class="foggy-woggy" id="fog-5"></div>
-			<div class="foggy-woggy" id="fog-6"></div>
-			<div class="foggy-woggy" id="fog-7"></div>
-			<div class="foggy-woggy" id="fog-8"></div>
-			<div class="foggy-woggy" id="fog-9"></div>
-			<div class="foggy-woggy" id="fog-10"></div>
-			<div class="foggy-woggy" id="fog-11"></div>
-			<div class="foggy-woggy" id="fog-12"></div>
+		<div class="logo" id="logo">
+			<img src="images/logo-fog.png" alt="logo">
 		</div>
 
-		<div class="wavy-shmavy">
-			<div class="wavy" id="wave-3"></div>
-			<div class="wavy" id="wave-2"></div>
-			<div class="wavy" id="wave-1"></div>
-		</div>
+		<div id="page-wrap">
 
+			<div id="page-cover"></div>
+
+			<div class="background" style="background-image: url('images/subtlegrunge_9.jpg');"></div>
+
+			<div class='landscape-wrap'>
+				<div class='landscape' id='l5' style="background-image: url(images/landscape-5.png);"></div>
+				<div class='landscape' id='l4' style="background-image: url(images/landscape-4.png);"></div>
+				<div class='landscape' id='l3' style="background-image: url(images/landscape-3.png);"></div>
+				<div class='landscape' id='l2' style="background-image: url(images/landscape-2.png);"></div>
+				<div class='landscape' id='l1' style="background-image: url(images/landscape-1.png);"></div>
+				
+			</div>
+
+			<div class="bg-wrap">
+				<div class="background background-2" style="background-image: url(images/subtlegrunge_9.jpg);"></div>
+			</div>
+
+			<div class="main-wrap">
+				<div class="trailer-wrap">
+					<h4>trailer</h4>
+					<div class="trailer-container">
+					</div>
+				</div>
+
+				<div class="overview-wrap">
+					<h4>overview</h4>
+					<hr>
+					<p>All That Remains is a first person narrative experience in which the player experiences the story through the characters memories. It is set in a possible near future where most people have left for a cleaner planet, and because of this consumption of the earths resources has skyrocketed. The few that stayed behind to live out their life are now dwindling, suffering a thick poisonous smog and rogue force send back to quell those that tried to fight against the careless destruction.</p>
+					<a href="#" class="action">LAUNCHING ON STEAM 5th August</a>
+				</div>
+
+				<div class="screenshot-wrap">
+					<h4>screenshots</h4>
+					<div class="screenshot">
+						<img src="images/ATR_SS01.jpg" id="screen-1" alt="game screenshot 1">
+					</div>
+					<div class="screenshot">
+						<img src="images/ATR_SS02.jpg" id="screen-2" alt="game screenshot 2">
+					</div>
+					<div class="screenshot">
+						<img src="images/ATR_SS03.jpg" id="screen-3" alt="game screenshot 3">
+					</div>
+					<div class="screenshot">
+						<img src="images/ATR_SS06.jpg" id="screen-4" alt="game screenshot 4">
+					</div>
+				</div>
+
+				<div class="details-wrap">
+				</div>
+
+			</div><!--end of main wrap-->
+	
+			<div class="fog">
+				<div class="foggy-woggy" id="fog-1" style="background-image: url(images/fog-1.png);"></div>
+				<div class="foggy-woggy" id="fog-2" style="background-image: url(images/fog-2.png);"></div>
+				<div class="foggy-woggy" id="fog-3" style="background-image: url(images/fog-3.png);"></div>
+				<div class="foggy-woggy" id="fog-4" style="background-image: url(images/fog-4.png);"></div>
+				<div class="foggy-woggy" id="fog-5" style="background-image: url(images/fog-5.png);"></div>
+				<div class="foggy-woggy" id="fog-6" style="background-image: url(images/fog-6.png);"></div>
+				<div class="foggy-woggy" id="fog-7" style="background-image: url(images/fog-7.png);"></div>
+				<div class="foggy-woggy" id="fog-8" style="background-image: url(images/fog-8.png);"></div>
+				<div class="foggy-woggy" id="fog-9" style="background-image: url(images/fog-9.png);"></div>
+				<div class="foggy-woggy" id="fog-10" style="background-image: url(images/fog-10.png);"></div>
+				<div class="foggy-woggy" id="fog-11" style="background-image: url(images/fog-11.png);"></div>
+				<div class="foggy-woggy" id="fog-12" style="background-image: url(images/fog-12.png);"></div>
+				<div class="foggy-woggy" id="fog-13" style="background-image: url(images/fog-13.png);"></div>
+				<div class="foggy-woggy" id="fog-14" style="background-image: url(images/fog-14.png);"></div>
+				<div class="foggy-woggy" id="fog-15" style="background-image: url(images/fog-15.png);"></div>
+				<div class="foggy-woggy" id="fog-16" style="background-image: url(images/fog-16.png);"></div>
+				<div class="foggy-woggy" id="fog-17" style="background-image: url(images/fog-17.png);"></div>
+				<div class="foggy-woggy" id="fog-18" style="background-image: url(images/fog-18.png);"></div>
+				<div class="foggy-woggy" id="fog-19" style="background-image: url(images/fog-19.png);"></div>
+				<div class="foggy-woggy" id="fog-20" style="background-image: url(images/fog-20.png);"></div>
+				<div class="foggy-woggy" id="fog-21" style="background-image: url(images/fog-21.png);"></div>
+				<div class="foggy-woggy" id="fog-22" style="background-image: url(images/fog-22.png);"></div>
+				<div class="foggy-woggy" id="fog-23" style="background-image: url(images/fog-23.png);"></div>
+				<div class="foggy-woggy" id="fog-24" style="background-image: url(images/fog-24.png);"></div>
+			</div>
+	
+			<div class="wavy-shmavy">
+				<div class="wavy" id="wave-3" style="background-image: url(images/waves-3.png);"></div>
+				<div class="not-a-wave">
+					<img src="images/octopus.png" alt="octopus">
+				</div>
+				<div class="wavy" id="wave-2" style="background-image: url(images/waves-2.png);"></div>
+				<div class="wavy" id="wave-1" style="background-image: url(images/waves-1.png);"></div>
+			</div>
+
+		</div><!--end of page-->
 	</body>
 </html>

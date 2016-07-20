@@ -9,6 +9,57 @@
 body, html {
 	background-color: $notwhite;
 	min-height: 100%;
+	margin: 0;
+}
+
+#loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    overflow: hidden;
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    #canvas2 {
+	    position: relative;
+	    width: 100%;
+	    height: 100%;
+	}
+}
+
+.logo {
+	width: 200px;
+	position: absolute;
+	display: none;
+	padding-top: 30px;
+	z-index: 750;
+	left: 50%;
+	-webkit-transform: translate(-50%, 0%);
+	-moz-transform: translate(-50%, 0%);
+	-ms-transform: translate(-50%, 0%);
+	transform: translate(-50%, 0%);
+
+	img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+#page-wrap {
+	
+	#page-cover {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-color: $notwhite;
+		overflow: hidden;
+		display: block;
+		z-index: 500;
+	}
 }
 
 h4 {
@@ -33,6 +84,26 @@ p {
 	@media screen and (max-width: 700px) {font-size: 0.8em;}
 }
 
+a {
+	font-family: $head;
+	font-weight: 400;
+	font-size: 1.2em;
+	line-height: 1.2em;
+	letter-spacing: 0.1em;
+	text-decoration: none;
+	color: $notwhite;
+	text-transform: uppercase;
+}
+
+.background {
+	height: 1000px;
+	width: 100%;
+	opacity: 0.1;
+	position: absolute;
+	z-index: 0;
+	background-size: cover;
+}
+
 .landscape-wrap {
 	width: 100%;
 	padding-top: 0px;
@@ -49,49 +120,40 @@ p {
 	    background-repeat: repeat-x;
 	    transform: translate3d(0px, 0px, 0px);
 	}
-	#l5 {
-		background-image: url('../images/landscape-5.png');
-		z-index: 1;
-	}
-	#l4 {
-		background-image: url('../images/landscape-4.png');
-		z-index: 2;
-	}
-	#l3 {
-		background-image: url('../images/landscape-3.png');
-		z-index: 3;
-	}
-	#l2 {
-		background-image: url('../images/landscape-2.png');
-		z-index: 4;
-	}
-	#l1 {
-		background-image: url('../images/landscape-1.png');
-		z-index: 6;
-		position: absolute;
-	}
-	.logo {
-		width: 200px;
-		margin: 0 auto;
-		padding-top: 30px;
+	#l5 {z-index: 1;}
+	#l4 {z-index: 2;}
+	#l3 {z-index: 3;}
+	#l2 {z-index: 4;}
+	#l1 {z-index: 7; position: absolute;}
+}
 
-		img {
-			width: 100%;
-			height: auto;
-		}
+.bg-wrap {
+	background-color: $notwhite;
+   	opacity: 1;
+    height: 3150px;
+    position: absolute;
+    top: 1000px;
+    z-index: 5;
+    width: 100%;
+
+	.background-2 {
+		height: 2000px;
+		z-index: 5;
+		height: 100%;
 	}
 }
 
 .main-wrap {
-	background-color: $notwhite;
 	height: auto;
 	width: 100%;
-	z-index: 5;
+	z-index: 6;
 	position: relative;
 	display: block;
 
+	
 	.trailer-wrap, .overview-wrap, .screenshot-wrap, .details-wrap {
 		width: 100%;
+		z-index: 7;
 
 		h4 {
 			padding-bottom: 50px;
@@ -115,6 +177,14 @@ p {
 		margin: 0 auto;
 		width: 50%;
 		text-align: center;
+
+		.action {
+			background-color: $turqoise;
+			height: auto;
+			padding: 5px 20px;
+			border: 1px $turqoise;
+			border-radius: 5px;
+		}
 	}
 
 	.screenshot-wrap {
@@ -147,110 +217,218 @@ p {
 
 	.foggy-woggy {
 		width: 100%;
-		height: 2000px;
+		height: 1800px;
 		top: 0px;
 		position: fixed;
-		animation: foggy 10s alternate linear infinite;
-		-webkit-animation: foggy 10s alternate linear infinite;
-		-ms-animation: foggy 10s alternate linear infinite;
+		background-size: 100% 60%;
 	}
 
-	#fog-1 {
-		background-image: url('../images/fog-02.png');
-		z-index: 11;
+	#fog-1 {z-index: 11;}
+	#fog-2 {z-index: 12;}
+	#fog-3 {z-index: 13;}
+	#fog-4 {z-index: 14;}
+	#fog-5 {z-index: 15;}
+	#fog-6 {z-index: 16;}
+	#fog-7 {z-index: 17;}
+	#fog-8 {z-index: 18;}
+	#fog-9 {z-index: 19;}
+	#fog-10 {z-index: 20;}
+	#fog-11 {z-index: 21;}
+	#fog-12 {z-index: 22;}
+	#fog-13 {z-index: 23;}
+	#fog-14 {z-index: 24;}
+	#fog-15 {z-index: 25;}
+	#fog-16 {z-index: 26;}
+	#fog-17 {z-index: 27;}
+	#fog-18 {z-index: 28;}
+	#fog-19 {z-index: 29;}
+	#fog-20 {z-index: 30;}
+	#fog-21 {z-index: 31;}
+	#fog-22 {z-index: 32;}
+	#fog-23 {z-index: 33;}
+	#fog-24 {z-index: 34;}
+
+	#fog-1, #fog-3, #fog-4, #fog-8, #fog-22, #fog-23, #fog-24 {
+		opacity: 0;
+		animation: foggy_one 10s alternate linear infinite;
+		-webkit-animation: foggy_one 10s alternate linear infinite;
+		-ms-animation: foggy_one 10s alternate linear infinite;
 	}
-	#fog-2 {
-		background-image: url('../images/fog-03.png');
-		z-index: 12;
+	#fog-2, #fog-5, #fog-9, #fog-19, #fog-20, #fog-21 {
+		opacity: 0;
+		animation: foggy_two 10s alternate linear infinite;
+		-webkit-animation: foggy_two 10s alternate linear infinite;
+		-ms-animation: foggy_two 10s alternate linear infinite;
 	}
-	#fog-3 {
-		background-image: url('../images/fog-04.png');
-		z-index: 13;
+	#fog-6, #fog-10, #fog-11, #fog-14, #fog-15, #fog-17 {
+		opacity: 0;
+		animation: foggy_three 10s alternate linear infinite;
+		-webkit-animation: foggy_three 10s  alternate linear infinite;
+		-ms-animation: foggy_three 10s alternate linear infinite;
 	}
-	#fog-4 {
-		background-image: url('../images/fog-05.png');
-		z-index: 14;
-	}
-	#fog-5 {
-		background-image: url('../images/fog-06.png');
-		z-index: 15;
-	}
-	#fog-6 {
-		background-image: url('../images/fog-07.png');
-		z-index: 16;
-	}
-	#fog-7 {
-		background-image: url('../images/fog-08.png');
-		z-index: 17;
-	}
-	#fog-8 {
-		background-image: url('../images/fog-09.png');
-		z-index: 18;
-	}
-	#fog-9 {
-		background-image: url('../images/fog-10.png');
-		z-index: 19;
-	}
-	#fog-10 {
-		background-image: url('../images/fog-11.png');
-		z-index: 20;
-	}
-	#fog-11 {
-		background-image: url('../images/fog-12.png');
-		z-index: 21;
-	}
-	#fog-12 {
-		background-image: url('../images/fog-13.png');
-		z-index: 22;
+	#fog-12, #fog-13, #fog-16, #fog-18 {
+		opacity: 0;
+		animation: foggy_four 10s alternate linear infinite;
+		-webkit-animation: foggy_four 10s alternate linear infinite;
+		-ms-animation: foggy_four 10s alternate linear infinite;
 	}
 }
 
-@-webkit-keyframes foggy {
+@-webkit-keyframes foggy_one {
 	0%   {
-		-webkit-transform: translate3d(0, 0) ;
-		-ms-transform: translate3d(0, 0) ;
-		transform: translate3d(0, 0) ;
+		opacity: 0;
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
 	}
 	100% {
-		-webkit-transform: translate3d(0, 0) ;
-		-ms-transform: translate3d(0, 0) ;
-		transform: translate3d(0, 0) ;
+		opacity: 1;
+		-webkit-transform: translate3d(0px,0px,800px);
+		-ms-transform: translate3d(0px,0px,800px);
+		transform: translate3d(0px,0px,800px);
 	}
 }
 
+@-webkit-keyframes foggy_two {
+	0%   {
+		opacity: 0;
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+	25%   {
+		opacity: 0;
+		-webkit-transform: translate3d(0,0,0);
+		-ms-transform: translate3d(0,0,0);
+		transform: translate3d(0,0,0);
+	}
+	100% {
+		opacity: 1;
+		-webkit-transform: translate3d(0px,0px,800px);
+		-ms-transform: translate3d(0px,0px,800px);
+		transform: translate3d(0px,0px,800px);
+	}
+}
+
+@-webkit-keyframes foggy_three {
+	0%   {opacity: 0;}
+	25%   {opacity: 0;}
+	50%   {opacity: 0;}
+	75% {opacity: 0.5;}
+	100% {opacity: 1;}
+}
+
+@-webkit-keyframes foggy_four {
+	0%   {opacity: 0;}
+	25%   {opacity: 0;}
+	50%   {opacity: 0;}
+	75% {opacity: 0;}
+	100% {opacity: 1;}
+}
 
 .wavy-shmavy {
 	width: 100%;
 	bottom: 0;
+	overflow: hidden;
 	position: relative;
 	display: block;
-	background-color: $notwhite;
-	z-index: 6;
-	height: 230px;
+	z-index: 7;
+	height: 250px;
 
 	.wavy {
 		position: absolute;;
-		width: 100%;
-		height: 230px;
-		background-position: bottom center;
-	    background-size: auto 230px;
-	    background-repeat: repeat-x;
-	    transform: translate3d(0px, 0px, 0px);
+		width: 110%;
+		height: 250px;
+	}
+
+	#wave-3, #wave-2, #wave-1 {
+		transform-origin: left top 0px;
+		transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);
+		-webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);
 	}
 
 	#wave-3 {
-		background-image: url('../images/waves-3.png');
-		z-index: 7;
-	}
-	
-	#wave-2 {
-		background-image: url('../images/waves-2.png');
+		animation-name: scrolling, bobbing;
+		animation-duration: 150s, 5s;
+		animation-timing-function: linear, ease;
+		animation-iteration-count: infinite, infinite;
+
+		-webkit-animation-name: scrolling, bobbing;
+		-webkit-animation-duration: 150s, 5s;
+		-webkit-animation-timing-function: linear, ease;
+		-webkit-animation-iteration-count: infinite, infinite; 
+
+		-moz-animation-name: scrolling, bobbing;
+		-moz-animation-duration: 150s, 5s;
+		-moz-animation-timing-function: linear, ease;
+		-moz-animation-iteration-count: infinite, infinite;
+
 		z-index: 8;
 	}
 
-	#wave-1 {
-		background-image: url('../images/waves-1.png');
-		z-index: 9;
+	.not-a-wave {
+		position: absolute;
+    	width: 30px;
+    	height: auto;
+    	left: 85%;
+    	bottom: 15%;
+    	z-index: 9;
+
+		img {
+			width: 100%;
+			height: auto;
+		}
 	}
 	
+	#wave-2 {
+		animation-name: scrolling, bobbing;
+		animation-duration: 120s, 4s;
+		animation-timing-function: linear, ease;
+		animation-iteration-count: infinite, infinite;
+
+		-webkit-animation-name: scrolling, bobbing;
+		-webkit-animation-duration: 120s, 4s;
+		-webkit-animation-timing-function: linear, ease;
+		-webkit-animation-iteration-count: infinite, infinite; 
+
+		-moz-animation-name: scrolling, bobbing;
+		-moz-animation-duration: 120s, 4s;
+		-moz-animation-timing-function: linear, ease;
+		-moz-animation-iteration-count: infinite, infinite;
+
+		z-index: 10;
+	}
+
+	#wave-1 {
+		animation-name: scrolling;
+		animation-duration: 100s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+
+		-webkit-animation-name: scrolling;
+		animation-duration: 100s;
+		-webkit-animation-timing-function: linear;
+		-webkit-animation-iteration-count: infinite; 
+
+		-moz-animation-name: scrolling;
+		animation-duration: 100s;
+		-moz-animation-timing-function: linear;
+		-moz-animation-iteration-count: infinite;
+
+		z-index: 11;
+	}	
 }
+
+@-webkit-keyframes scrolling {
+	0%		{background-position: left bottom;}
+	50%		{background-position: center bottom;}
+	100% 	{background-position: right bottom;}
+}
+
+
+@-webkit-keyframes bobbing {
+	0%   	{transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1); -webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
+	50% 	{transform: matrix3d(1,0,0.00,0,0.00,1.04,0.00,0.0001,0,0,1,0,0,0,0,1); -webkit-transform: matrix3d(1,0,0.00,0,0.00,1.04,0.00,0.0001,0,0,1,0,0,0,0,1);}
+	100% 	{transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1); -webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
+}
+
