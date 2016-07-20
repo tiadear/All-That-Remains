@@ -12,6 +12,53 @@ body, html {
 	margin: 0;
 }
 
+h4 {
+	font-family: $head;
+	font-weight: 400;
+	font-size: 2.5em;
+	line-height: 1.2em;
+	letter-spacing: 0.1em;
+	color: $grey;
+	text-transform: uppercase;
+	@media screen and (max-width: 1000px) {font-size: 2em;}
+	@media screen and (max-width: 700px) {font-size: 1.5em;}
+}
+
+p {
+	font-family: $body;
+	font-weight: 400;
+	color: $black;
+	font-size: 1em;
+	line-height: 1.4em;	
+	@media screen and (max-width: 1000px) {font-size: 1em;}
+	@media screen and (max-width: 700px) {font-size: 0.8em;}
+}
+
+a {
+	font-family: $body;
+	font-weight: 400;
+	font-size: 1.2em;
+	line-height: 1.2em;
+	letter-spacing: 0.1em;
+	text-decoration: none;
+	color: $notwhite;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//LOADING
+
 #loading {
     position: fixed;
     top: 0;
@@ -62,39 +109,21 @@ body, html {
 	}
 }
 
-h4 {
-	font-family: $head;
-	font-weight: 400;
-	font-size: 2.5em;
-	line-height: 1.2em;
-	letter-spacing: 0.1em;
-	color: $grey;
-	text-transform: uppercase;
-	@media screen and (max-width: 1000px) {font-size: 2em;}
-	@media screen and (max-width: 700px) {font-size: 1.5em;}
-}
 
-p {
-	font-family: $body;
-	font-weight: 400;
-	color: $black;
-	font-size: 1em;
-	line-height: 1.4em;	
-	@media screen and (max-width: 1000px) {font-size: 1em;}
-	@media screen and (max-width: 700px) {font-size: 0.8em;}
-}
 
-a {
-	font-family: $head;
-	font-weight: 400;
-	font-size: 1.2em;
-	line-height: 1.2em;
-	letter-spacing: 0.1em;
-	text-decoration: none;
-	color: $notwhite;
-	text-transform: uppercase;
-}
 
+
+
+
+
+
+
+
+
+
+
+
+//TOP HEADER
 .background {
 	height: 1000px;
 	width: 100%;
@@ -127,10 +156,26 @@ a {
 	#l1 {z-index: 7; position: absolute;}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//MAIN PAGE
+
 .bg-wrap {
 	background-color: $notwhite;
    	opacity: 1;
-    height: 3150px;
+    height: 3180px;
     position: absolute;
     top: 1000px;
     z-index: 5;
@@ -156,7 +201,14 @@ a {
 		z-index: 7;
 
 		h4 {
-			padding-bottom: 50px;
+			padding-bottom: 10px;
+		}
+
+		.liney {
+			width: 100px;
+			height: 2.5px;
+			background-color: $grey;
+			margin: 10px auto 20px auto;
 		}
 	}
 
@@ -164,10 +216,29 @@ a {
 		padding-top: 50px;
 		text-align: center;
 
+		.action {
+			color: $grey;
+			margin: 30px auto;
+			height: auto;
+			width: 300px;
+			padding: 10px 20px;
+			background: $notwhite;
+			border: 2.5px solid $grey;
+			font-family: $head;
+			font-weight: 400;
+			font-size: 1.2em;
+			line-height: 1.2em;
+			letter-spacing: 0.1em;
+			text-transform: uppercase;
+			cursor: pointer;
+			position: relative;
+		}
+
 		.trailer-container{
 			width: 800px;
 			height: 450px;
 			background-color: $black;
+			display: none;
 			margin: 0 auto;
 		}
 	}
@@ -178,12 +249,60 @@ a {
 		width: 50%;
 		text-align: center;
 
-		.action {
-			background-color: $turqoise;
-			height: auto;
-			padding: 5px 20px;
-			border: 1px $turqoise;
-			border-radius: 5px;
+		a {
+			.action {
+				color: $grey;
+			    margin: 30px auto;
+			    height: auto;
+			    width: 500px;
+			    padding: 10px 20px;
+			    background: $notwhite;
+			    border: 2.5px solid $grey;
+			    font-family: $head;
+			    text-transform: uppercase;
+			    cursor: pointer;
+			    position: relative;
+
+			    -webkit-transform: translateZ(0);
+			    transform: translateZ(0);
+			    -webkit-transition-property: color;
+			    transition-property: color;
+			    -webkit-transition-duration: 0.6s;
+			    transition-duration: 0.6s;
+
+			    &:before {
+			    	content: "August 5th";
+			    	padding: 10px 20px;
+				    position: absolute;
+				    z-index: 7;
+				    top: 0;
+				    left: 0;
+				    right: 0;
+				    bottom: 0;
+				    background: $grey;
+				    color: $notwhite;
+
+				    -webkit-transform: scaleX(0);
+				    transform: scaleX(0);
+				    -webkit-transform-origin: 0 50%;
+				    transform-origin: 0 50%;
+				    -webkit-transition-property: transform;
+				    transition-property: transform;
+				    -webkit-transition-duration: 0.6s;
+				    transition-duration: 0.6s;
+				    -webkit-transition-timing-function: ease-out;
+				    transition-timing-function: ease-out;
+			    }
+
+			    &:hover, &:focus, &:active {
+			    	color: $notwhite;
+			    }
+
+			    &:hover:before, &:focus:before, &:active:before {
+			    	-webkit-transform: scaleX(1);
+				  	transform: scaleX(1);
+			    }
+			}
 		}
 	}
 
@@ -206,9 +325,39 @@ a {
 	}
 
 	.details-wrap {
+		padding-top: 200px;
 		height: 500px;
+		width: 70%;
+		margin: 0 auto;
+
+		.details {
+			width: 50%;
+			float: left;
+		}
+
+		.right {
+			text-align: right;
+		}
 	}	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//FOGGY
 
 .fog {
 	width: 100%;
@@ -218,6 +367,7 @@ a {
 	.foggy-woggy {
 		width: 100%;
 		height: 1800px;
+		pointer-events: none;
 		top: 0px;
 		position: fixed;
 		background-size: 100% 60%;
@@ -249,7 +399,7 @@ a {
 	#fog-24 {z-index: 34;}
 
 	#fog-1, #fog-3, #fog-4, #fog-8, #fog-22, #fog-23, #fog-24 {
-		opacity: 0;
+		opacity: 1;
 		animation: foggy_one 10s alternate linear infinite;
 		-webkit-animation: foggy_one 10s alternate linear infinite;
 		-ms-animation: foggy_one 10s alternate linear infinite;
@@ -326,6 +476,23 @@ a {
 	100% {opacity: 1;}
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//WAVES
+
 .wavy-shmavy {
 	width: 100%;
 	bottom: 0;
@@ -371,8 +538,13 @@ a {
     	width: 30px;
     	height: auto;
     	left: 85%;
-    	bottom: 15%;
+    	bottom: 20%;
     	z-index: 9;
+    	animation: octopuslife 30s ease infinite;
+    	-webkit-animation: octopuslife 30s ease infinite;
+    	-moz-animation: octopuslife 30s ease infinite;
+    	-ms-animation: octopuslife 30s ease infinite;
+    	transform-origin: center bottom 0px;
 
 		img {
 			width: 100%;
@@ -432,3 +604,17 @@ a {
 	100% 	{transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1); -webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
 }
 
+@-webkit-keyframes octopuslife {
+	0%   	{
+		transform: rotate(0deg);
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-ms-transform: rotate(0deg);
+	}
+	100%   	{
+		transform: rotate(360deg);
+		-webkit-transform: rotate(360deg);
+		-moz-transform: rotate(360deg);
+		-ms-transform: rotate(360deg);
+	}
+}
