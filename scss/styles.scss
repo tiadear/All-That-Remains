@@ -350,29 +350,14 @@ a {
 				width: 50px;
 			    height: 50px;
 			    position: relative;
-			    border: 2.5px solid $grey;
-			    border-radius: 50%;
 			    cursor: pointer;
 			    display: inline-block;
 			    margin: 0 25px;
-			    transition: border 1s;
-			    -webkit-transition: border 0.2s;
-			    -moz-transition: border 0.2s;
-
-				img {
-					height: 40%;
-				    width: auto;
-				    top: 50%;
-				    left: 50%;
-				    position: absolute;
-				    -webkit-transform: translate(-50%, -50%);
-				    -moz-transform: translate(-50%, -50%);
-				    -ms-transform: translate(-50%, -50%);
-				    transform: translate(-50%, -50%);
-				}
 
 				&:hover {
-					border: 2.5px dashed $grey;
+					.st0 {
+						fill: $turquoise;
+					}
 				}
 			}
 		}
