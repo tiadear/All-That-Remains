@@ -116,7 +116,13 @@ jQuery(function($){
 
 });
 	
+$(document).ready(function(){
+	var docheight = $(document).height();
+	var top = 1000;
+	var bgheight = docheight - top;
 
+	$('.bg-wrap').css("height", bgheight);
+});
 
 
     

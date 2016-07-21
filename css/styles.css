@@ -120,14 +120,11 @@ a {
 .bg-wrap {
   background-color: #f3f1f1;
   opacity: 1;
-  height: 3180px;
   position: absolute;
   top: 1000px;
   z-index: 5;
   width: 100%; }
   .bg-wrap .background-2 {
-    height: 2000px;
-    z-index: 5;
     height: 100%; }
 
 .main-wrap {
@@ -136,12 +133,12 @@ a {
   z-index: 6;
   position: relative;
   display: block; }
-  .main-wrap .trailer-wrap, .main-wrap .overview-wrap, .main-wrap .screenshot-wrap, .main-wrap .details-wrap {
+  .main-wrap .trailer-wrap, .main-wrap .overview-wrap, .main-wrap .screenshot-wrap, .main-wrap .details-wrap, .main-wrap .social-wrap {
     width: 100%;
     z-index: 7; }
-    .main-wrap .trailer-wrap h4, .main-wrap .overview-wrap h4, .main-wrap .screenshot-wrap h4, .main-wrap .details-wrap h4 {
+    .main-wrap .trailer-wrap h4, .main-wrap .overview-wrap h4, .main-wrap .screenshot-wrap h4, .main-wrap .details-wrap h4, .main-wrap .social-wrap h4 {
       padding-bottom: 10px; }
-    .main-wrap .trailer-wrap .liney, .main-wrap .overview-wrap .liney, .main-wrap .screenshot-wrap .liney, .main-wrap .details-wrap .liney {
+    .main-wrap .trailer-wrap .liney, .main-wrap .overview-wrap .liney, .main-wrap .screenshot-wrap .liney, .main-wrap .details-wrap .liney, .main-wrap .social-wrap .liney {
       width: 100px;
       height: 2.5px;
       background-color: #3d4140;
@@ -163,7 +160,6 @@ a {
       line-height: 1.2em;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      cursor: pointer;
       position: relative; }
     .main-wrap .trailer-wrap .trailer-container {
       width: 800px;
@@ -242,6 +238,26 @@ a {
       float: left; }
     .main-wrap .details-wrap .right {
       text-align: right; }
+    .main-wrap .details-wrap .liney {
+      margin: 0; }
+  .main-wrap .social-wrap {
+    width: 70%;
+    margin: 0 auto;
+    text-align: center; }
+    .main-wrap .social-wrap a .social {
+      width: 50px;
+      height: auto;
+      padding: 0 25px;
+      transition: transform, 0.3s;
+      -webkit-transition: transform, 0.3s;
+      -moz-transition: transform, 0.3s; }
+      .main-wrap .social-wrap a .social img {
+        width: 100%;
+        height: auto; }
+      .main-wrap .social-wrap a .social:hover {
+        transform: rotateY(180deg);
+        -webkit-transform: rotateY(180deg);
+        -moz-transform: rotateY(180deg); }
 
 .fog {
   width: 100%;
