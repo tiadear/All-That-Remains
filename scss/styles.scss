@@ -12,6 +12,14 @@ body, html {
 	margin: 0;
 }
 
+body {
+	perspective: 1px;
+	transform-style: preserve-3d;
+  	height: 100%;
+  	overflow-y: scroll;
+  	overflow-x: hidden;
+}
+
 h4 {
 	font-family: $head;
 	font-weight: 400;
@@ -67,7 +75,7 @@ a {
     overflow: hidden;
     display: block;
     width: 100%;
-    height: 100%;
+    height: 100vh;
 
     #canvas2 {
 	    position: relative;
@@ -107,7 +115,6 @@ a {
 		display: block;
 		z-index: 500;
 	}
-}
 
 
 
@@ -123,246 +130,298 @@ a {
 
 
 
-//TOP HEADER
-.background {
-	height: 1000px;
-	width: 100%;
-	opacity: 0.1;
-	position: absolute;
-	z-index: 0;
-	background-size: cover;
-}
 
-.landscape-wrap {
-	width: 100%;
-	padding-top: 0px;
-	position: relative;
-	display: block;
-	height: 1600px;
-
-	.landscape {
-		position: fixed;
-		width: 100%;
-		height: 1650px;
-		background-position: bottom center;
-	    background-size: auto 1650px;
-	    background-repeat: repeat-x;
-	    transform: translate3d(0px, 0px, 0px);
-	}
-	#l5 {z-index: 1;}
-	#l4 {z-index: 2;}
-	#l3 {z-index: 3;}
-	#l2 {z-index: 4;}
-	#l1 {z-index: 7; position: absolute;}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//MAIN PAGE
-
-.bg-wrap {
-	background-color: $notwhite;
-   	opacity: 1;
-    position: absolute;
-    top: 1000px;
-    z-index: 5;
-    width: 100%;
-
-	.background-2 {
-		height: 100%;
-	}
-}
-
-.main-wrap {
-	height: auto;
-	width: 100%;
-	z-index: 6;
-	position: relative;
-	display: block;
-
+	//TOP HEADER
 	
-	.trailer-wrap, .overview-wrap, .screenshot-wrap, .details-wrap, .social-wrap {
+
+	.landscape-wrap {
 		width: 100%;
-		z-index: 7;
+		position: relative;
+		height: 1650px;
 
-		h4 {
-			padding-bottom: 10px;
-		}
+	    overflow-x: hidden;
+	    overflow-y: auto;
+	    -webkit-perspective: 1px;
+	    perspective: 1px;
 
-		.liney {
-			width: 100px;
-			height: 2.5px;
-			background-color: $grey;
-			margin: 10px auto 20px auto;
-		}
+	    .landscape-group {
+	    	position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			//overflow: hidden;
+
+	    	.landscape {
+				width: 100%;
+				height: 1650px;
+				background-position: bottom center;
+			    background-repeat: repeat-x;
+			    background-size: cover;
+			    position: absolute;
+			}
+
+			#l6 {
+				z-index: -1;
+				height: 1000px;
+				width: 100%;
+				opacity: 0.1;
+				position: absolute;
+				background-size: cover;
+				transform: translateZ(0) scale(1);
+				-webkit-transform: translateZ(0);
+			}
+
+			#l5 {
+				z-index: 1;
+				-webkit-transform: translateZ(-0.8px) scale(1.8);
+		    	transform: translateZ(-0.8px) scale(1.8);
+			}
+
+			#l4 {
+				z-index: 2;
+				-webkit-transform: translateZ(-0.6px) scale(1.6);
+		    	transform: translateZ(-0.6px) scale(1.6);
+			}
+
+			#l3 {
+				z-index: 3;
+				-webkit-transform: translateZ(-0.4px) scale(1.4);
+		    	transform: translateZ(-0.4px) scale(1.4);
+			}
+
+			#l2 {
+				z-index: 4;
+				-webkit-transform: translateZ(-0.2px) scale(1.2);
+		    	transform: translateZ(-0.2px) scale(1.2);
+			}
+
+			#l1 {
+				z-index: 7;
+				transform: translateZ(0) scale(1);
+				-webkit-transform: translateZ(0);
+			}
+	    }
 	}
 
-	.trailer-wrap {
-		padding-top: 50px;
-		text-align: center;
 
-		.action {
-			color: $grey;
-			margin: 30px auto;
-			height: auto;
-			width: 300px;
-			padding: 10px 20px;
-			background: $notwhite;
-			border: 2.5px solid $grey;
-			font-family: $head;
-			font-weight: 400;
-			font-size: 1.2em;
-			line-height: 1.2em;
-			letter-spacing: 0.1em;
-			text-transform: uppercase;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	//MAIN PAGE
+	.main-wrap {
+		position: absolute;
+    	z-index:6;
+    	bottom: 1vh;
+    	top: auto;
+    	text-align: center;
+    	width: 100%;
+
+		.bg-wrap {
+			background-color: $notwhite;
+		   	opacity: 1;
+		    position: absolute;
+		    top: 0;
+		    z-index: 5;
+		    width: 100%;
+
+			.background-2 {
+				height: 100%;
+			}
+		}
+
+		.trailer-wrap, .overview-wrap, .screenshot-wrap, .details-wrap, .social-wrap {
+			width: 100%;
+			z-index: 7;
 			position: relative;
+
+			h4 {
+				padding-bottom: 10px;
+			}
+
+			.liney {
+				width: 100px;
+				height: 2.5px;
+				background-color: $grey;
+				margin: 10px auto 20px auto;
+			}
 		}
 
-		.trailer-container{
-			width: 800px;
-			height: 450px;
-			background-color: $black;
-			display: none;
-			margin: 0 auto;
-		}
-	}
+		.trailer-wrap {
+			padding-top: 50px;
+			text-align: center;
 
-	.overview-wrap {
-		padding-top: 200px;
-		margin: 0 auto;
-		width: 50%;
-		text-align: center;
-
-		a {
 			.action {
 				color: $grey;
-			    margin: 30px auto;
-			    height: auto;
-			    width: 500px;
-			    padding: 10px 20px;
-			    background: $notwhite;
-			    border: 2.5px solid $grey;
-			    font-family: $head;
-			    text-transform: uppercase;
-			    cursor: pointer;
-			    position: relative;
+				margin: 30px auto;
+				height: auto;
+				width: 300px;
+				padding: 10px 20px;
+				background: $notwhite;
+				border: 2.5px solid $grey;
+				font-family: $head;
+				font-weight: 400;
+				font-size: 1.2em;
+				line-height: 1.2em;
+				letter-spacing: 0.1em;
+				text-transform: uppercase;
+				position: relative;
+			}
 
-			    -webkit-transform: translateZ(0);
-			    transform: translateZ(0);
-			    -webkit-transition-property: color;
-			    transition-property: color;
-			    -webkit-transition-duration: 0.6s;
-			    transition-duration: 0.6s;
+			.trailer-container{
+				width: 800px;
+				height: 450px;
+				background-color: $black;
+				display: none;
+				margin: 0 auto;
+			}
+		}
 
-			    &:before {
-			    	content: "August 5th";
-			    	padding: 10px 20px;
-				    position: absolute;
-				    z-index: 7;
-				    top: 0;
-				    left: 0;
-				    right: 0;
-				    bottom: 0;
-				    background: $grey;
-				    color: $notwhite;
+		.overview-wrap {
+			padding-top: 200px;
+			margin: 0 auto;
+			width: 50%;
+			text-align: center;
 
-				    -webkit-transform: scaleX(0);
-				    transform: scaleX(0);
-				    -webkit-transform-origin: 0 50%;
-				    transform-origin: 0 50%;
-				    -webkit-transition-property: transform;
-				    transition-property: transform;
+			a {
+				.action {
+					color: $grey;
+				    margin: 30px auto;
+				    height: auto;
+				    width: 500px;
+				    padding: 10px 20px;
+				    background: $notwhite;
+				    border: 2.5px solid $grey;
+				    font-family: $head;
+				    text-transform: uppercase;
+				    cursor: pointer;
+				    position: relative;
+
+				    -webkit-transform: translateZ(0);
+				    transform: translateZ(0);
+				    -webkit-transition-property: color;
+				    transition-property: color;
 				    -webkit-transition-duration: 0.6s;
 				    transition-duration: 0.6s;
-				    -webkit-transition-timing-function: ease-out;
-				    transition-timing-function: ease-out;
-			    }
 
-			    &:hover, &:focus, &:active {
-			    	color: $notwhite;
-			    }
+				    &:before {
+				    	content: "August 5th";
+				    	padding: 10px 20px;
+					    position: absolute;
+					    z-index: 7;
+					    top: 0;
+					    left: 0;
+					    right: 0;
+					    bottom: 0;
+					    background: $grey;
+					    color: $notwhite;
 
-			    &:hover:before, &:focus:before, &:active:before {
-			    	-webkit-transform: scaleX(1);
-				  	transform: scaleX(1);
-			    }
+					    -webkit-transform: scaleX(0);
+					    transform: scaleX(0);
+					    -webkit-transform-origin: 0 50%;
+					    transform-origin: 0 50%;
+					    -webkit-transition-property: transform;
+					    transition-property: transform;
+					    -webkit-transition-duration: 0.6s;
+					    transition-duration: 0.6s;
+					    -webkit-transition-timing-function: ease-out;
+					    transition-timing-function: ease-out;
+				    }
+
+				    &:hover, &:focus, &:active {
+				    	color: $notwhite;
+				    }
+
+				    &:hover:before, &:focus:before, &:active:before {
+				    	-webkit-transform: scaleX(1);
+					  	transform: scaleX(1);
+				    }
+				}
 			}
 		}
-	}
 
-	.screenshot-wrap {
-		padding-top: 200px;
-		width: 80%;
-		margin: 0 auto;
-		text-align: center;
+		.screenshot-wrap {
+			padding-top: 200px;
+			width: 80%;
+			margin: 0 auto;
+			text-align: center;
 
-		.screenshot {
-			width: 45%;
-			padding: 10px;
-			display: inline-block;
+			.screenshot {
+				width: 45%;
+				padding: 10px;
+				display: inline-block;
 
-			img {
-				width: 100%;
-				height: auto;
+				img {
+					width: 100%;
+					height: auto;
+				}
 			}
 		}
-	}
 
-	.details-wrap {
-		padding-top: 200px;
-		height: 500px;
-		width: 70%;
-		margin: 0 auto;
+		.details-wrap {
+			padding-top: 200px;
+			height: 500px;
+			width: 70%;
+			margin: 0 auto;
 
-		.details {
-			width: 50%;
-			float: left;
+			.details {
+				width: 50%;
+				float: left;
+			}
+
+			.right {
+				text-align: right;
+			}
+
+			.liney {
+				margin: 0;
+			}
 		}
 
-		.right {
-			text-align: right;
-		}
+		.social-wrap {
+			width: 70%;
+			margin: 0 auto;
+			text-align: center;
 
-		.liney {
-			margin: 0;
-		}
-	}
+			a {
+				.social {
+					width: 50px;
+				    height: 50px;
+				    position: relative;
+				    cursor: pointer;
+				    display: inline-block;
+				    margin: 0 25px;
 
-	.social-wrap {
-		width: 70%;
-		margin: 0 auto;
-		text-align: center;
-
-		a {
-			.social {
-				width: 50px;
-			    height: 50px;
-			    position: relative;
-			    cursor: pointer;
-			    display: inline-block;
-			    margin: 0 25px;
-
-				&:hover {
-					.st0 {
-						fill: $turquoise;
+					&:hover {
+						.st0 {
+							fill: $turquoise;
+						}
 					}
 				}
 			}
 		}
 	}
 }
+
+
+
+
+
 
 
 
@@ -422,28 +481,28 @@ a {
 	#fog-24 {z-index: 34;}
 
 	#fog-1, #fog-3, #fog-4, #fog-8, #fog-22, #fog-23, #fog-24 {
-		opacity: 1;
-		animation: foggy_one 10s alternate linear infinite;
-		-webkit-animation: foggy_one 10s alternate linear infinite;
-		-ms-animation: foggy_one 10s alternate linear infinite;
+		opacity: 0;
+		animation: foggy_one 8s alternate linear infinite;
+		-webkit-animation: foggy_one 8s alternate linear infinite;
+		-ms-animation: foggy_one 8s alternate linear infinite;
 	}
 	#fog-2, #fog-5, #fog-9, #fog-19, #fog-20, #fog-21 {
 		opacity: 0;
-		animation: foggy_two 10s alternate linear infinite;
-		-webkit-animation: foggy_two 10s alternate linear infinite;
-		-ms-animation: foggy_two 10s alternate linear infinite;
+		animation: foggy_two 8s alternate linear infinite;
+		-webkit-animation: foggy_two 8s alternate linear infinite;
+		-ms-animation: foggy_two 8s alternate linear infinite;
 	}
 	#fog-6, #fog-10, #fog-11, #fog-14, #fog-15, #fog-17 {
 		opacity: 0;
-		animation: foggy_three 10s alternate linear infinite;
-		-webkit-animation: foggy_three 10s  alternate linear infinite;
-		-ms-animation: foggy_three 10s alternate linear infinite;
+		animation: foggy_three 8s alternate linear infinite;
+		-webkit-animation: foggy_three 8s alternate linear infinite;
+		-ms-animation: foggy_three 8s alternate linear infinite;
 	}
 	#fog-12, #fog-13, #fog-16, #fog-18 {
 		opacity: 0;
-		animation: foggy_four 10s alternate linear infinite;
-		-webkit-animation: foggy_four 10s alternate linear infinite;
-		-ms-animation: foggy_four 10s alternate linear infinite;
+		animation: foggy_four 8s alternate linear infinite;
+		-webkit-animation: foggy_four 8s alternate linear infinite;
+		-ms-animation: foggy_four 8s alternate linear infinite;
 	}
 }
 

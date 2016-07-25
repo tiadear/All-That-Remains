@@ -6,6 +6,13 @@ body, html {
   min-height: 100%;
   margin: 0; }
 
+body {
+  perspective: 1px;
+  transform-style: preserve-3d;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden; }
+
 h4 {
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
@@ -51,7 +58,7 @@ a {
   overflow: hidden;
   display: block;
   width: 100%;
-  height: 100%; }
+  height: 100vh; }
   #loading #canvas2 {
     position: relative;
     width: 100%;
@@ -82,71 +89,87 @@ a {
   overflow: hidden;
   display: block;
   z-index: 500; }
-
-.background {
-  height: 1000px;
+#page-wrap .landscape-wrap {
   width: 100%;
-  opacity: 0.1;
-  position: absolute;
-  z-index: 0;
-  background-size: cover; }
-
-.landscape-wrap {
-  width: 100%;
-  padding-top: 0px;
   position: relative;
-  display: block;
-  height: 1600px; }
-  .landscape-wrap .landscape {
-    position: fixed;
-    width: 100%;
-    height: 1650px;
-    background-position: bottom center;
-    background-size: auto 1650px;
-    background-repeat: repeat-x;
-    transform: translate3d(0px, 0px, 0px); }
-  .landscape-wrap #l5 {
-    z-index: 1; }
-  .landscape-wrap #l4 {
-    z-index: 2; }
-  .landscape-wrap #l3 {
-    z-index: 3; }
-  .landscape-wrap #l2 {
-    z-index: 4; }
-  .landscape-wrap #l1 {
-    z-index: 7;
-    position: absolute; }
-
-.bg-wrap {
-  background-color: #f3f1f1;
-  opacity: 1;
+  height: 1650px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 1px;
+  perspective: 1px; }
+  #page-wrap .landscape-wrap .landscape-group {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0; }
+    #page-wrap .landscape-wrap .landscape-group .landscape {
+      width: 100%;
+      height: 1650px;
+      background-position: bottom center;
+      background-repeat: repeat-x;
+      background-size: cover;
+      position: absolute; }
+    #page-wrap .landscape-wrap .landscape-group #l6 {
+      z-index: -1;
+      height: 1000px;
+      width: 100%;
+      opacity: 0.1;
+      position: absolute;
+      background-size: cover;
+      transform: translateZ(0) scale(1);
+      -webkit-transform: translateZ(0); }
+    #page-wrap .landscape-wrap .landscape-group #l5 {
+      z-index: 1;
+      -webkit-transform: translateZ(-0.8px) scale(1.8);
+      transform: translateZ(-0.8px) scale(1.8); }
+    #page-wrap .landscape-wrap .landscape-group #l4 {
+      z-index: 2;
+      -webkit-transform: translateZ(-0.6px) scale(1.6);
+      transform: translateZ(-0.6px) scale(1.6); }
+    #page-wrap .landscape-wrap .landscape-group #l3 {
+      z-index: 3;
+      -webkit-transform: translateZ(-0.4px) scale(1.4);
+      transform: translateZ(-0.4px) scale(1.4); }
+    #page-wrap .landscape-wrap .landscape-group #l2 {
+      z-index: 4;
+      -webkit-transform: translateZ(-0.2px) scale(1.2);
+      transform: translateZ(-0.2px) scale(1.2); }
+    #page-wrap .landscape-wrap .landscape-group #l1 {
+      z-index: 7;
+      transform: translateZ(0) scale(1);
+      -webkit-transform: translateZ(0); }
+#page-wrap .main-wrap {
   position: absolute;
-  top: 1000px;
-  z-index: 5;
-  width: 100%; }
-  .bg-wrap .background-2 {
-    height: 100%; }
-
-.main-wrap {
-  height: auto;
-  width: 100%;
   z-index: 6;
-  position: relative;
-  display: block; }
-  .main-wrap .trailer-wrap, .main-wrap .overview-wrap, .main-wrap .screenshot-wrap, .main-wrap .details-wrap, .main-wrap .social-wrap {
+  bottom: 1vh;
+  top: auto;
+  text-align: center;
+  width: 100%; }
+  #page-wrap .main-wrap .bg-wrap {
+    background-color: #f3f1f1;
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    z-index: 5;
+    width: 100%; }
+    #page-wrap .main-wrap .bg-wrap .background-2 {
+      height: 100%; }
+  #page-wrap .main-wrap .trailer-wrap, #page-wrap .main-wrap .overview-wrap, #page-wrap .main-wrap .screenshot-wrap, #page-wrap .main-wrap .details-wrap, #page-wrap .main-wrap .social-wrap {
     width: 100%;
-    z-index: 7; }
-    .main-wrap .trailer-wrap h4, .main-wrap .overview-wrap h4, .main-wrap .screenshot-wrap h4, .main-wrap .details-wrap h4, .main-wrap .social-wrap h4 {
+    z-index: 7;
+    position: relative; }
+    #page-wrap .main-wrap .trailer-wrap h4, #page-wrap .main-wrap .overview-wrap h4, #page-wrap .main-wrap .screenshot-wrap h4, #page-wrap .main-wrap .details-wrap h4, #page-wrap .main-wrap .social-wrap h4 {
       padding-bottom: 10px; }
-    .main-wrap .trailer-wrap .liney, .main-wrap .overview-wrap .liney, .main-wrap .screenshot-wrap .liney, .main-wrap .details-wrap .liney, .main-wrap .social-wrap .liney {
+    #page-wrap .main-wrap .trailer-wrap .liney, #page-wrap .main-wrap .overview-wrap .liney, #page-wrap .main-wrap .screenshot-wrap .liney, #page-wrap .main-wrap .details-wrap .liney, #page-wrap .main-wrap .social-wrap .liney {
       width: 100px;
       height: 2.5px;
       background-color: #3d4140;
       margin: 10px auto 20px auto; }
-  .main-wrap .trailer-wrap {
+  #page-wrap .main-wrap .trailer-wrap {
     padding-top: 50px;
     text-align: center; }
-    .main-wrap .trailer-wrap .action {
+    #page-wrap .main-wrap .trailer-wrap .action {
       color: #3d4140;
       margin: 30px auto;
       height: auto;
@@ -161,18 +184,18 @@ a {
       letter-spacing: 0.1em;
       text-transform: uppercase;
       position: relative; }
-    .main-wrap .trailer-wrap .trailer-container {
+    #page-wrap .main-wrap .trailer-wrap .trailer-container {
       width: 800px;
       height: 450px;
       background-color: #1a1a1b;
       display: none;
       margin: 0 auto; }
-  .main-wrap .overview-wrap {
+  #page-wrap .main-wrap .overview-wrap {
     padding-top: 200px;
     margin: 0 auto;
     width: 50%;
     text-align: center; }
-    .main-wrap .overview-wrap a .action {
+    #page-wrap .main-wrap .overview-wrap a .action {
       color: #3d4140;
       margin: 30px auto;
       height: auto;
@@ -190,7 +213,7 @@ a {
       transition-property: color;
       -webkit-transition-duration: 0.6s;
       transition-duration: 0.6s; }
-      .main-wrap .overview-wrap a .action:before {
+      #page-wrap .main-wrap .overview-wrap a .action:before {
         content: "August 5th";
         padding: 10px 20px;
         position: absolute;
@@ -211,47 +234,47 @@ a {
         transition-duration: 0.6s;
         -webkit-transition-timing-function: ease-out;
         transition-timing-function: ease-out; }
-      .main-wrap .overview-wrap a .action:hover, .main-wrap .overview-wrap a .action:focus, .main-wrap .overview-wrap a .action:active {
+      #page-wrap .main-wrap .overview-wrap a .action:hover, #page-wrap .main-wrap .overview-wrap a .action:focus, #page-wrap .main-wrap .overview-wrap a .action:active {
         color: #f3f1f1; }
-      .main-wrap .overview-wrap a .action:hover:before, .main-wrap .overview-wrap a .action:focus:before, .main-wrap .overview-wrap a .action:active:before {
+      #page-wrap .main-wrap .overview-wrap a .action:hover:before, #page-wrap .main-wrap .overview-wrap a .action:focus:before, #page-wrap .main-wrap .overview-wrap a .action:active:before {
         -webkit-transform: scaleX(1);
         transform: scaleX(1); }
-  .main-wrap .screenshot-wrap {
+  #page-wrap .main-wrap .screenshot-wrap {
     padding-top: 200px;
     width: 80%;
     margin: 0 auto;
     text-align: center; }
-    .main-wrap .screenshot-wrap .screenshot {
+    #page-wrap .main-wrap .screenshot-wrap .screenshot {
       width: 45%;
       padding: 10px;
       display: inline-block; }
-      .main-wrap .screenshot-wrap .screenshot img {
+      #page-wrap .main-wrap .screenshot-wrap .screenshot img {
         width: 100%;
         height: auto; }
-  .main-wrap .details-wrap {
+  #page-wrap .main-wrap .details-wrap {
     padding-top: 200px;
     height: 500px;
     width: 70%;
     margin: 0 auto; }
-    .main-wrap .details-wrap .details {
+    #page-wrap .main-wrap .details-wrap .details {
       width: 50%;
       float: left; }
-    .main-wrap .details-wrap .right {
+    #page-wrap .main-wrap .details-wrap .right {
       text-align: right; }
-    .main-wrap .details-wrap .liney {
+    #page-wrap .main-wrap .details-wrap .liney {
       margin: 0; }
-  .main-wrap .social-wrap {
+  #page-wrap .main-wrap .social-wrap {
     width: 70%;
     margin: 0 auto;
     text-align: center; }
-    .main-wrap .social-wrap a .social {
+    #page-wrap .main-wrap .social-wrap a .social {
       width: 50px;
       height: 50px;
       position: relative;
       cursor: pointer;
       display: inline-block;
       margin: 0 25px; }
-      .main-wrap .social-wrap a .social:hover .st0 {
+      #page-wrap .main-wrap .social-wrap a .social:hover .st0 {
         fill: #37aa9c; }
 
 .fog {
@@ -314,25 +337,25 @@ a {
   .fog #fog-24 {
     z-index: 34; }
   .fog #fog-1, .fog #fog-3, .fog #fog-4, .fog #fog-8, .fog #fog-22, .fog #fog-23, .fog #fog-24 {
-    opacity: 1;
-    animation: foggy_one 10s alternate linear infinite;
-    -webkit-animation: foggy_one 10s alternate linear infinite;
-    -ms-animation: foggy_one 10s alternate linear infinite; }
+    opacity: 0;
+    animation: foggy_one 8s alternate linear infinite;
+    -webkit-animation: foggy_one 8s alternate linear infinite;
+    -ms-animation: foggy_one 8s alternate linear infinite; }
   .fog #fog-2, .fog #fog-5, .fog #fog-9, .fog #fog-19, .fog #fog-20, .fog #fog-21 {
     opacity: 0;
-    animation: foggy_two 10s alternate linear infinite;
-    -webkit-animation: foggy_two 10s alternate linear infinite;
-    -ms-animation: foggy_two 10s alternate linear infinite; }
+    animation: foggy_two 8s alternate linear infinite;
+    -webkit-animation: foggy_two 8s alternate linear infinite;
+    -ms-animation: foggy_two 8s alternate linear infinite; }
   .fog #fog-6, .fog #fog-10, .fog #fog-11, .fog #fog-14, .fog #fog-15, .fog #fog-17 {
     opacity: 0;
-    animation: foggy_three 10s alternate linear infinite;
-    -webkit-animation: foggy_three 10s  alternate linear infinite;
-    -ms-animation: foggy_three 10s alternate linear infinite; }
+    animation: foggy_three 8s alternate linear infinite;
+    -webkit-animation: foggy_three 8s alternate linear infinite;
+    -ms-animation: foggy_three 8s alternate linear infinite; }
   .fog #fog-12, .fog #fog-13, .fog #fog-16, .fog #fog-18 {
     opacity: 0;
-    animation: foggy_four 10s alternate linear infinite;
-    -webkit-animation: foggy_four 10s alternate linear infinite;
-    -ms-animation: foggy_four 10s alternate linear infinite; }
+    animation: foggy_four 8s alternate linear infinite;
+    -webkit-animation: foggy_four 8s alternate linear infinite;
+    -ms-animation: foggy_four 8s alternate linear infinite; }
 
 @-webkit-keyframes foggy_one {
   0% {

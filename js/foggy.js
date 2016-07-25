@@ -122,6 +122,9 @@ $(document).ready(function(){
 	var bgheight = docheight - top;
 
 	$('.bg-wrap').css("height", bgheight);
+
+	
+
 });
 
 
