@@ -37,7 +37,7 @@ p {
 	font-size: 1em;
 	line-height: 1.4em;	
 	@media screen and (max-width: 1000px) {font-size: 1em;}
-	@media screen and (max-width: 700px) {font-size: 0.8em;}
+	@media screen and (max-width: 700px) {line-height: 1.8em;}
 }
 
 a {
@@ -89,10 +89,10 @@ a {
 	padding-top: 30px;
 	z-index: 750;
 	left: 50%;
-	-webkit-transform: translate(-50%, 0%);
-	-moz-transform: translate(-50%, 0%);
-	-ms-transform: translate(-50%, 0%);
-	transform: translate(-50%, 0%);
+	-webkit-transform: translate3d(-50%, 0%, 0);
+	-moz-transform: translate3d(-50%, 0%, 0);
+	-ms-transform: translate3d(-50%, 0%, 0);
+	transform: translate3d(-50%, 0%, 0);
 
 	img {
 		width: 100%;
@@ -100,19 +100,22 @@ a {
 	}
 }
 
-#page-wrap {
-	
-	#page-cover {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
+.bg-wrap {
+	background-color: $notwhite;
+	opacity: 1;
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+	z-index: 0;
+
+	.background {
 		height: 100%;
-		background-color: $notwhite;
-		overflow: hidden;
-		display: block;
-		z-index: 500;
+		opacity: 0.2;
+		background-size: cover;
+		background-position: 50%;
 	}
+}
+
 
 	.parallax {
 		overflow-x: hidden;
@@ -120,6 +123,22 @@ a {
 	    height: 100vh;
 	    -webkit-perspective: 1px;
 	    perspective: 1px;
+
+
+		#page-wrap {
+			
+			#page-cover {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: $notwhite;
+				overflow: hidden;
+				display: block;
+				z-index: 500;
+			}
+		}
 
 	    .parallax-group {
 			position: relative;
@@ -183,10 +202,15 @@ a {
 		#group2 {
 			z-index: 3;
 			height: 740px;
+			@media screen and (max-width: 700px) {height: 500px;}
+			@media screen and (max-width: 500px) {height: 300px;}
 
 			.parallax-layer-1 {
 				background-position: 50% 0;
 				background-size: auto 740px;
+				background-size: cover;
+				@media screen and (max-width: 700px) {background-size: auto 500px;}
+				@media screen and (max-width: 500px) {background-size: auto 300px}
 			}
 		}
 
@@ -194,20 +218,7 @@ a {
 			.parallax-layer-1 {
 				z-index: 2;
 
-				.bg-wrap {
-					background-color: $notwhite;
-				   	opacity: 1;
-				    position: absolute;
-				    top: 0;
-				    bottom: 0;
-				    left: 0;
-				    right: 0;
-				    z-index: 5;
-
-					.background-2 {
-						height: 100%;
-					}
-				}
+				
 
 				.trailer-wrap, .overview-wrap, .screenshot-wrap, .details-wrap, .social-wrap {
 					width: 100%;
@@ -229,6 +240,7 @@ a {
 				.trailer-wrap {
 					padding-top: 50px;
 					text-align: center;
+					@media screen and (max-width: 1100px) {padding-top: 0px;}
 
 					.action {
 						color: $grey;
@@ -245,6 +257,7 @@ a {
 						letter-spacing: 0.1em;
 						text-transform: uppercase;
 						position: relative;
+						@media screen and (max-width: 700px) {width: 70%;}
 					}
 
 					.trailer-container{
@@ -261,6 +274,7 @@ a {
 					margin: 0 auto;
 					width: 50%;
 					text-align: center;
+					@media screen and (max-width: 1100px) {width: 80%; padding-top: 100px;}
 
 					a {
 						.action {
@@ -275,13 +289,15 @@ a {
 						    text-transform: uppercase;
 						    cursor: pointer;
 						    position: relative;
-
 						    -webkit-transform: translateZ(0);
 						    transform: translateZ(0);
 						    -webkit-transition-property: color;
 						    transition-property: color;
 						    -webkit-transition-duration: 0.6s;
 						    transition-duration: 0.6s;
+
+						    @media screen and (max-width: 1100px) {width: 80%;}
+						    @media screen and (max-width: 700px) {width: 85%;}
 
 						    &:before {
 						    	content: "August 5th";
@@ -324,11 +340,13 @@ a {
 					width: 80%;
 					margin: 0 auto;
 					text-align: center;
+					@media screen and (max-width: 1100px) {width: 100%; padding-top: 100px;}
 
 					.screenshot {
 						width: 45%;
 						padding: 10px;
 						display: inline-block;
+						@media screen and (max-width: 700px) {width: 95%; margin: 0 auto;}
 
 						img {
 							width: 100%;
@@ -342,14 +360,19 @@ a {
 					height: 500px;
 					width: 70%;
 					margin: 0 auto;
+					@media screen and (max-width: 1100px) {width: 80%; padding-top: 100px;}
+					@media screen and (max-width: 700px) {width: 100%; padding: 100px 20px; height: auto;}
 
 					.details {
-						width: 50%;
-						float: left;
+						width: 49%;
+						display: inline-block;
+						vertical-align: top;
+						@media screen and (max-width: 500px) {width: 100%; text-align: center;}
 					}
 
 					.right {
 						text-align: right;
+						@media screen and (max-width: 500px) {text-align: center; padding-top: 30px;}
 					}
 
 					.liney {
@@ -382,7 +405,7 @@ a {
 			} // end of parallax layer 1
 		} // end of group 3
 	}
-}
+
 
 
 
@@ -414,7 +437,7 @@ a {
 
 	.foggy-woggy {
 		width: 100%;
-		height: 1800px;
+		height: 100vh;
 		pointer-events: none;
 		top: 0px;
 		position: fixed;
@@ -536,16 +559,13 @@ a {
 
 
 
-
-
-
 //WAVES
 
 .wavy-shmavy {
+	position: relative;
 	width: 100%;
 	bottom: 0;
 	overflow: hidden;
-	position: relative;
 	display: block;
 	z-index: 7;
 	height: 250px;

@@ -121,7 +121,7 @@ $(document).ready(function(){
 	var top = 1000;
 	var bgheight = docheight - top;
 
-	$('.bg-wrap').css("height", bgheight);
+	//$('.bg-wrap').css("height", bgheight);
 
 	
 
