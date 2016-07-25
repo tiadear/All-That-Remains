@@ -1,17 +1,15 @@
 * {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
 
 body, html {
   background-color: #f3f1f1;
   min-height: 100%;
-  margin: 0; }
+  overflow: hidden; }
 
 body {
-  perspective: 1px;
-  transform-style: preserve-3d;
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden; }
+  height: 100%; }
 
 h4 {
   font-family: "Fjalla One", sans-serif;
@@ -89,193 +87,193 @@ a {
   overflow: hidden;
   display: block;
   z-index: 500; }
-#page-wrap .landscape-wrap {
-  width: 100%;
-  position: relative;
-  height: 1650px;
+#page-wrap .parallax {
   overflow-x: hidden;
   overflow-y: auto;
+  height: 100vh;
   -webkit-perspective: 1px;
   perspective: 1px; }
-  #page-wrap .landscape-wrap .landscape-group {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0; }
-    #page-wrap .landscape-wrap .landscape-group .landscape {
-      width: 100%;
-      height: 1650px;
-      background-position: bottom center;
-      background-repeat: repeat-x;
-      background-size: cover;
-      position: absolute; }
-    #page-wrap .landscape-wrap .landscape-group #l6 {
-      z-index: -1;
-      height: 1000px;
-      width: 100%;
-      opacity: 0.1;
+  #page-wrap .parallax .parallax-group {
+    position: relative;
+    height: 100vh;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d; }
+    #page-wrap .parallax .parallax-group .parallax-layer {
       position: absolute;
-      background-size: cover;
-      transform: translateZ(0) scale(1);
-      -webkit-transform: translateZ(0); }
-    #page-wrap .landscape-wrap .landscape-group #l5 {
-      z-index: 1;
-      -webkit-transform: translateZ(-0.8px) scale(1.8);
-      transform: translateZ(-0.8px) scale(1.8); }
-    #page-wrap .landscape-wrap .landscape-group #l4 {
-      z-index: 2;
-      -webkit-transform: translateZ(-0.6px) scale(1.6);
-      transform: translateZ(-0.6px) scale(1.6); }
-    #page-wrap .landscape-wrap .landscape-group #l3 {
-      z-index: 3;
-      -webkit-transform: translateZ(-0.4px) scale(1.4);
-      transform: translateZ(-0.4px) scale(1.4); }
-    #page-wrap .landscape-wrap .landscape-group #l2 {
-      z-index: 4;
-      -webkit-transform: translateZ(-0.2px) scale(1.2);
-      transform: translateZ(-0.2px) scale(1.2); }
-    #page-wrap .landscape-wrap .landscape-group #l1 {
-      z-index: 7;
-      transform: translateZ(0) scale(1);
-      -webkit-transform: translateZ(0); }
-#page-wrap .main-wrap {
-  position: absolute;
-  z-index: 6;
-  bottom: 1vh;
-  top: auto;
-  text-align: center;
-  width: 100%; }
-  #page-wrap .main-wrap .bg-wrap {
-    background-color: #f3f1f1;
-    opacity: 1;
-    position: absolute;
-    top: 0;
-    z-index: 5;
-    width: 100%; }
-    #page-wrap .main-wrap .bg-wrap .background-2 {
-      height: 100%; }
-  #page-wrap .main-wrap .trailer-wrap, #page-wrap .main-wrap .overview-wrap, #page-wrap .main-wrap .screenshot-wrap, #page-wrap .main-wrap .details-wrap, #page-wrap .main-wrap .social-wrap {
-    width: 100%;
-    z-index: 7;
-    position: relative; }
-    #page-wrap .main-wrap .trailer-wrap h4, #page-wrap .main-wrap .overview-wrap h4, #page-wrap .main-wrap .screenshot-wrap h4, #page-wrap .main-wrap .details-wrap h4, #page-wrap .main-wrap .social-wrap h4 {
-      padding-bottom: 10px; }
-    #page-wrap .main-wrap .trailer-wrap .liney, #page-wrap .main-wrap .overview-wrap .liney, #page-wrap .main-wrap .screenshot-wrap .liney, #page-wrap .main-wrap .details-wrap .liney, #page-wrap .main-wrap .social-wrap .liney {
-      width: 100px;
-      height: 2.5px;
-      background-color: #3d4140;
-      margin: 10px auto 20px auto; }
-  #page-wrap .main-wrap .trailer-wrap {
-    padding-top: 50px;
-    text-align: center; }
-    #page-wrap .main-wrap .trailer-wrap .action {
-      color: #3d4140;
-      margin: 30px auto;
-      height: auto;
-      width: 300px;
-      padding: 10px 20px;
-      background: #f3f1f1;
-      border: 2.5px solid #3d4140;
-      font-family: "Fjalla One", sans-serif;
-      font-weight: 400;
-      font-size: 1.2em;
-      line-height: 1.2em;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      position: relative; }
-    #page-wrap .main-wrap .trailer-wrap .trailer-container {
-      width: 800px;
-      height: 450px;
-      background-color: #1a1a1b;
-      display: none;
-      margin: 0 auto; }
-  #page-wrap .main-wrap .overview-wrap {
-    padding-top: 200px;
-    margin: 0 auto;
-    width: 50%;
-    text-align: center; }
-    #page-wrap .main-wrap .overview-wrap a .action {
-      color: #3d4140;
-      margin: 30px auto;
-      height: auto;
-      width: 500px;
-      padding: 10px 20px;
-      background: #f3f1f1;
-      border: 2.5px solid #3d4140;
-      font-family: "Fjalla One", sans-serif;
-      text-transform: uppercase;
-      cursor: pointer;
-      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      background-position: 50% 100%;
+      background-size: auto 910px;
+      background-repeat: repeat-x; }
+    #page-wrap .parallax .parallax-group .parallax-layer-1 {
       -webkit-transform: translateZ(0);
       transform: translateZ(0);
-      -webkit-transition-property: color;
-      transition-property: color;
-      -webkit-transition-duration: 0.6s;
-      transition-duration: 0.6s; }
-      #page-wrap .main-wrap .overview-wrap a .action:before {
-        content: "August 5th";
+      z-index: 5; }
+    #page-wrap .parallax .parallax-group .parallax-layer-2 {
+      -webkit-transform: translateZ(-0.2px) scale(1.2);
+      transform: translateZ(-0.2px) scale(1.2);
+      z-index: 4; }
+    #page-wrap .parallax .parallax-group .parallax-layer-3 {
+      -webkit-transform: translateZ(-0.4px) scale(1.4);
+      transform: translateZ(-0.4px) scale(1.4);
+      z-index: 3; }
+    #page-wrap .parallax .parallax-group .parallax-layer-4 {
+      -webkit-transform: translateZ(-0.6px) scale(1.6);
+      transform: translateZ(-0.6px) scale(1.6);
+      z-index: 2; }
+    #page-wrap .parallax .parallax-group .parallax-layer-5 {
+      -webkit-transform: translateZ(-0.8px) scale(1.8);
+      transform: translateZ(-0.8px) scale(1.8);
+      z-index: 1; }
+    #page-wrap .parallax .parallax-group .parallax-layer-6 {
+      -webkit-transform: translateZ(-1px) scale(2);
+      transform: translateZ(-1px) scale(2);
+      z-index: 0; }
+  #page-wrap .parallax #group1 {
+    z-index: 2; }
+  #page-wrap .parallax #group2 {
+    z-index: 3;
+    height: 740px; }
+    #page-wrap .parallax #group2 .parallax-layer-1 {
+      background-position: 50% 0;
+      background-size: auto 740px; }
+  #page-wrap .parallax #group3 .parallax-layer-1 {
+    z-index: 2; }
+    #page-wrap .parallax #group3 .parallax-layer-1 .bg-wrap {
+      background-color: #f3f1f1;
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 5; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .bg-wrap .background-2 {
+        height: 100%; }
+    #page-wrap .parallax #group3 .parallax-layer-1 .trailer-wrap, #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap, #page-wrap .parallax #group3 .parallax-layer-1 .screenshot-wrap, #page-wrap .parallax #group3 .parallax-layer-1 .details-wrap, #page-wrap .parallax #group3 .parallax-layer-1 .social-wrap {
+      width: 100%;
+      z-index: 7;
+      position: relative; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .trailer-wrap h4, #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap h4, #page-wrap .parallax #group3 .parallax-layer-1 .screenshot-wrap h4, #page-wrap .parallax #group3 .parallax-layer-1 .details-wrap h4, #page-wrap .parallax #group3 .parallax-layer-1 .social-wrap h4 {
+        padding-bottom: 10px; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .trailer-wrap .liney, #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap .liney, #page-wrap .parallax #group3 .parallax-layer-1 .screenshot-wrap .liney, #page-wrap .parallax #group3 .parallax-layer-1 .details-wrap .liney, #page-wrap .parallax #group3 .parallax-layer-1 .social-wrap .liney {
+        width: 100px;
+        height: 2.5px;
+        background-color: #3d4140;
+        margin: 10px auto 20px auto; }
+    #page-wrap .parallax #group3 .parallax-layer-1 .trailer-wrap {
+      padding-top: 50px;
+      text-align: center; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .trailer-wrap .action {
+        color: #3d4140;
+        margin: 30px auto;
+        height: auto;
+        width: 300px;
         padding: 10px 20px;
-        position: absolute;
-        z-index: 7;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: #3d4140;
-        color: #f3f1f1;
-        -webkit-transform: scaleX(0);
-        transform: scaleX(0);
-        -webkit-transform-origin: 0 50%;
-        transform-origin: 0 50%;
-        -webkit-transition-property: transform;
-        transition-property: transform;
-        -webkit-transition-duration: 0.6s;
-        transition-duration: 0.6s;
-        -webkit-transition-timing-function: ease-out;
-        transition-timing-function: ease-out; }
-      #page-wrap .main-wrap .overview-wrap a .action:hover, #page-wrap .main-wrap .overview-wrap a .action:focus, #page-wrap .main-wrap .overview-wrap a .action:active {
-        color: #f3f1f1; }
-      #page-wrap .main-wrap .overview-wrap a .action:hover:before, #page-wrap .main-wrap .overview-wrap a .action:focus:before, #page-wrap .main-wrap .overview-wrap a .action:active:before {
-        -webkit-transform: scaleX(1);
-        transform: scaleX(1); }
-  #page-wrap .main-wrap .screenshot-wrap {
-    padding-top: 200px;
-    width: 80%;
-    margin: 0 auto;
-    text-align: center; }
-    #page-wrap .main-wrap .screenshot-wrap .screenshot {
-      width: 45%;
-      padding: 10px;
-      display: inline-block; }
-      #page-wrap .main-wrap .screenshot-wrap .screenshot img {
-        width: 100%;
-        height: auto; }
-  #page-wrap .main-wrap .details-wrap {
-    padding-top: 200px;
-    height: 500px;
-    width: 70%;
-    margin: 0 auto; }
-    #page-wrap .main-wrap .details-wrap .details {
+        background: #f3f1f1;
+        border: 2.5px solid #3d4140;
+        font-family: "Fjalla One", sans-serif;
+        font-weight: 400;
+        font-size: 1.2em;
+        line-height: 1.2em;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        position: relative; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .trailer-wrap .trailer-container {
+        width: 800px;
+        height: 450px;
+        background-color: #1a1a1b;
+        display: none;
+        margin: 0 auto; }
+    #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap {
+      padding-top: 200px;
+      margin: 0 auto;
       width: 50%;
-      float: left; }
-    #page-wrap .main-wrap .details-wrap .right {
-      text-align: right; }
-    #page-wrap .main-wrap .details-wrap .liney {
-      margin: 0; }
-  #page-wrap .main-wrap .social-wrap {
-    width: 70%;
-    margin: 0 auto;
-    text-align: center; }
-    #page-wrap .main-wrap .social-wrap a .social {
-      width: 50px;
-      height: 50px;
-      position: relative;
-      cursor: pointer;
-      display: inline-block;
-      margin: 0 25px; }
-      #page-wrap .main-wrap .social-wrap a .social:hover .st0 {
-        fill: #37aa9c; }
+      text-align: center; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap a .action {
+        color: #3d4140;
+        margin: 30px auto;
+        height: auto;
+        width: 500px;
+        padding: 10px 20px;
+        background: #f3f1f1;
+        border: 2.5px solid #3d4140;
+        font-family: "Fjalla One", sans-serif;
+        text-transform: uppercase;
+        cursor: pointer;
+        position: relative;
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-transition-property: color;
+        transition-property: color;
+        -webkit-transition-duration: 0.6s;
+        transition-duration: 0.6s; }
+        #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap a .action:before {
+          content: "August 5th";
+          padding: 10px 20px;
+          position: absolute;
+          z-index: 7;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background: #3d4140;
+          color: #f3f1f1;
+          -webkit-transform: scaleX(0);
+          transform: scaleX(0);
+          -webkit-transform-origin: 0 50%;
+          transform-origin: 0 50%;
+          -webkit-transition-property: transform;
+          transition-property: transform;
+          -webkit-transition-duration: 0.6s;
+          transition-duration: 0.6s;
+          -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out; }
+        #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap a .action:hover, #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap a .action:focus, #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap a .action:active {
+          color: #f3f1f1; }
+        #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap a .action:hover:before, #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap a .action:focus:before, #page-wrap .parallax #group3 .parallax-layer-1 .overview-wrap a .action:active:before {
+          -webkit-transform: scaleX(1);
+          transform: scaleX(1); }
+    #page-wrap .parallax #group3 .parallax-layer-1 .screenshot-wrap {
+      padding-top: 200px;
+      width: 80%;
+      margin: 0 auto;
+      text-align: center; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .screenshot-wrap .screenshot {
+        width: 45%;
+        padding: 10px;
+        display: inline-block; }
+        #page-wrap .parallax #group3 .parallax-layer-1 .screenshot-wrap .screenshot img {
+          width: 100%;
+          height: auto; }
+    #page-wrap .parallax #group3 .parallax-layer-1 .details-wrap {
+      padding-top: 200px;
+      height: 500px;
+      width: 70%;
+      margin: 0 auto; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .details-wrap .details {
+        width: 50%;
+        float: left; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .details-wrap .right {
+        text-align: right; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .details-wrap .liney {
+        margin: 0; }
+    #page-wrap .parallax #group3 .parallax-layer-1 .social-wrap {
+      width: 70%;
+      margin: 0 auto;
+      text-align: center; }
+      #page-wrap .parallax #group3 .parallax-layer-1 .social-wrap a .social {
+        width: 50px;
+        height: 50px;
+        position: relative;
+        cursor: pointer;
+        display: inline-block;
+        margin: 0 25px; }
+        #page-wrap .parallax #group3 .parallax-layer-1 .social-wrap a .social:hover .st0 {
+          fill: #37aa9c; }
 
 .fog {
   width: 100%;
