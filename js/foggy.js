@@ -75,38 +75,44 @@ jQuery(function($){
 
 	var $images = $('body').find('img[src]');
 	
-
+	//remove the url from the image src
     $('body [style]').each(function(){
         var src = $(this).css('background-image').replace(/^url\(["']?/, '').replace(/["']?\)$/, '');
-
         if(src && src != 'none') {
             $images = $images.add($('<img src="' + src + '"/>'));
         }
     });
 
+    //reapply the src to all the images
+    //because IE
+    $images.each(function(){
+    	$(this).attr('src', $(this).attr('src'));
+    });
+	
 	var imagesLoaded = 0;
-
+	
 	//on load complete
 	function pageReady() {
+		console.log('page ready');
 		$("#logo").fadeIn(5000, function(){
 			$('#page-cover').fadeOut(3000);
 		});
 		$("#loading").fadeOut(11000);
-		
 	}
 
+	//check they're all loaded
 	function loading() {
 		var percentage = 0;
 		percentage = parseInt((imagesLoaded / $images.length) * 100);
-		
 		if(percentage == 100){
 			setTimeout(pageReady,4000);
 		}
 	}
 
-	if($images.length) {	
+	//if there are images - load them!
+	if($images.length) {
        	loading();
-       
+
         $images.load(function(){
             $(this).off('load');
        		imagesLoaded++;
@@ -115,17 +121,7 @@ jQuery(function($){
     }
 
 });
-	
-$(document).ready(function(){
-	var docheight = $(document).height();
-	var top = 1000;
-	var bgheight = docheight - top;
 
-	//$('.bg-wrap').css("height", bgheight);
-
-	
-
-});
 
 
     

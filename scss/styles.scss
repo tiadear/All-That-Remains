@@ -122,8 +122,9 @@ a {
 	    overflow-y: auto;
 	    height: 100vh;
 	    -webkit-perspective: 1px;
+	    -moz-perspective: 1px;
+	    -ms-perspective: 1px;
 	    perspective: 1px;
-
 
 		#page-wrap {
 			
@@ -144,6 +145,8 @@ a {
 			position: relative;
 			height: 100vh;
 			-webkit-transform-style: preserve-3d;
+			-moz-transform-style: preserve-3d;
+			-ms-transform-style: preserve-3d;
 			transform-style: preserve-3d;
 
 			.parallax-layer {
@@ -160,38 +163,42 @@ a {
 
 			.parallax-layer-1 {
 				-webkit-transform: translateZ(0);
+				-moz-transform: translateZ(0);
+				-ms-transform: translateZ(0);
 				transform: translateZ(0);
-				z-index: 5;
+				z-index: 7;
 			}
 
 			.parallax-layer-2 {
 				-webkit-transform: translateZ(-0.2px) scale(1.2);
+				-moz-transform: translateZ(-0.2px) scale(1.2);
+				-ms-transform: translateZ(-0.2px) scale(1.2);
 				transform: translateZ(-0.2px) scale(1.2);
-				z-index: 4;
+				z-index: 6;
 			}
 
 			.parallax-layer-3 {
 				-webkit-transform: translateZ(-0.4px) scale(1.4);
+				-moz-transform: translateZ(-0.4px) scale(1.4);
+				-ms-transform: translateZ(-0.4px) scale(1.4);
 				transform: translateZ(-0.4px) scale(1.4);
-				z-index: 3;
+				z-index: 5;
 			}
 
 			.parallax-layer-4 {
 				-webkit-transform: translateZ(-0.6px) scale(1.6);
+				-moz-transform: translateZ(-0.6px) scale(1.6);
+				-ms-transform: translateZ(-0.6px) scale(1.6);
 				transform: translateZ(-0.6px) scale(1.6);
-				z-index: 2;
+				z-index: 4;
 			}
 
 			.parallax-layer-5 {
 				-webkit-transform: translateZ(-0.8px) scale(1.8);
+				-moz-transform: translateZ(-0.8px) scale(1.8);
+				-ms-transform: translateZ(-0.8px) scale(1.8);
 				transform: translateZ(-0.8px) scale(1.8);
-				z-index: 1;
-			}
-
-			.parallax-layer-6 {
-				-webkit-transform: translateZ(-1px) scale(2);
-				transform: translateZ(-1px) scale(2);
-				z-index: 0;
+				z-index: 3;
 			}
 		}
 
@@ -200,7 +207,7 @@ a {
 		}
 
 		#group2 {
-			z-index: 3;
+			z-index: 8;
 			height: 740px;
 			@media screen and (max-width: 700px) {height: 500px;}
 
@@ -208,19 +215,17 @@ a {
 				background-position: 50% 0;
 				background-size: auto 740px;
 				background-size: cover;
-				@media screen and (max-width: 700px) {background-size: auto 500px;}x}
+				@media screen and (max-width: 700px) {background-size: auto 500px;}
 			}
 		}
 
 		#group3 {
 			.parallax-layer-1 {
-				z-index: 2;
-
-				
+				z-index: 3;
 
 				.trailer-wrap, .overview-wrap, .screenshot-wrap, .details-wrap, .social-wrap {
 					width: 100%;
-					z-index: 7;
+					//z-index: 7;
 					position: relative;
 
 					h4 {
@@ -287,11 +292,20 @@ a {
 						    text-transform: uppercase;
 						    cursor: pointer;
 						    position: relative;
+
 						    -webkit-transform: translateZ(0);
+						    -moz-transform: translateZ(0);
+						    -ms-transform: translateZ(0);
 						    transform: translateZ(0);
+
 						    -webkit-transition-property: color;
+						    -moz-transition-property: color;
+						    -ms-transition-property: color;
 						    transition-property: color;
+
 						    -webkit-transition-duration: 0.6s;
+						    -moz-transition-duration: 0.6s;
+						    -ms-transition-duration: 0.6s;
 						    transition-duration: 0.6s;
 
 						    @media screen and (max-width: 1100px) {width: 80%;}
@@ -310,15 +324,19 @@ a {
 							    color: $notwhite;
 
 							    -webkit-transform: scaleX(0);
+							    -moz-transform: scaleX(0);
+							    -ms-transform: scaleX(0);
 							    transform: scaleX(0);
+
 							    -webkit-transform-origin: 0 50%;
+							    -moz-transform-origin: 0 50%;
+							    -ms-transform-origin: 0 50%;
 							    transform-origin: 0 50%;
-							    -webkit-transition-property: transform;
-							    transition-property: transform;
-							    -webkit-transition-duration: 0.6s;
-							    transition-duration: 0.6s;
-							    -webkit-transition-timing-function: ease-out;
-							    transition-timing-function: ease-out;
+
+							    -webkit-transition: transform 0.6s ease-out;
+							    -moz-transition: transform 0.6s ease-out;
+							    -ms-transition: transform 0.6s ease-out;
+							    transition: transform 0.6s ease-out;
 						    }
 
 						    &:hover, &:focus, &:active {
@@ -327,6 +345,8 @@ a {
 
 						    &:hover:before, &:focus:before, &:active:before {
 						    	-webkit-transform: scaleX(1);
+						    	-moz-transform: scaleX(1);
+						    	-ms-transform: scaleX(1);
 							  	transform: scaleX(1);
 						    }
 						}
@@ -430,8 +450,9 @@ a {
 
 .fog {
 	width: 100%;
+	//z-index: 100;
 	position: relative;
-	z-index: 10;
+	background: url(#); /* because IE is nuts */
 
 	.foggy-woggy {
 		width: 100%;
@@ -439,10 +460,10 @@ a {
 		pointer-events: none;
 		top: 0px;
 		position: fixed;
-		background-size: 100% 60%;
+		background-size: 100% 100%;
 		@media screen and (max-width: 1100px) {background-size: cover; background-position: 50% 50%;}
 	}
-
+/*
 	#fog-1 {z-index: 11;}
 	#fog-2 {z-index: 12;}
 	#fog-3 {z-index: 13;}
@@ -467,84 +488,46 @@ a {
 	#fog-22 {z-index: 32;}
 	#fog-23 {z-index: 33;}
 	#fog-24 {z-index: 34;}
-
+*/
 	#fog-1, #fog-3, #fog-4, #fog-8, #fog-22, #fog-23, #fog-24 {
 		opacity: 0;
 		animation: foggy_one 8s alternate linear infinite;
 		-webkit-animation: foggy_one 8s alternate linear infinite;
+		-moz-animation: foggy_one 8s alternate linear infinite;
 		-ms-animation: foggy_one 8s alternate linear infinite;
 	}
 	#fog-2, #fog-5, #fog-9, #fog-19, #fog-20, #fog-21 {
 		opacity: 0;
 		animation: foggy_two 8s alternate linear infinite;
 		-webkit-animation: foggy_two 8s alternate linear infinite;
+		-moz-animation: foggy_two 8s alternate linear infinite;
 		-ms-animation: foggy_two 8s alternate linear infinite;
 	}
 	#fog-6, #fog-10, #fog-11, #fog-14, #fog-15, #fog-17 {
 		opacity: 0;
 		animation: foggy_three 8s alternate linear infinite;
 		-webkit-animation: foggy_three 8s alternate linear infinite;
+		-moz-animation: foggy_three 8s alternate linear infinite;
 		-ms-animation: foggy_three 8s alternate linear infinite;
 	}
 	#fog-12, #fog-13, #fog-16, #fog-18 {
 		opacity: 0;
 		animation: foggy_four 8s alternate linear infinite;
 		-webkit-animation: foggy_four 8s alternate linear infinite;
+		-moz-animation: foggy_four 8s alternate linear infinite;
 		-ms-animation: foggy_four 8s alternate linear infinite;
 	}
 }
 
-@-webkit-keyframes foggy_one {
-	0%   {
-		opacity: 0;
-		-webkit-transform: translate3d(0,0,0);
-		-ms-transform: translate3d(0,0,0);
-		transform: translate3d(0,0,0);
-	}
-	100% {
-		opacity: 1;
-		-webkit-transform: translate3d(0px,0px,800px);
-		-ms-transform: translate3d(0px,0px,800px);
-		transform: translate3d(0px,0px,800px);
-	}
-}
 
-@-webkit-keyframes foggy_two {
-	0%   {
-		opacity: 0;
-		-webkit-transform: translate3d(0,0,0);
-		-ms-transform: translate3d(0,0,0);
-		transform: translate3d(0,0,0);
-	}
-	25%   {
-		opacity: 0;
-		-webkit-transform: translate3d(0,0,0);
-		-ms-transform: translate3d(0,0,0);
-		transform: translate3d(0,0,0);
-	}
-	100% {
-		opacity: 1;
-		-webkit-transform: translate3d(0px,0px,800px);
-		-ms-transform: translate3d(0px,0px,800px);
-		transform: translate3d(0px,0px,800px);
-	}
-}
 
-@-webkit-keyframes foggy_three {
-	0%   {opacity: 0;}
-	25%   {opacity: 0;}
-	50%   {opacity: 0;}
-	75% {opacity: 0.5;}
-	100% {opacity: 1;}
-}
 
-@-webkit-keyframes foggy_four {
-	0%   {opacity: 0;}
-	25%   {opacity: 0;}
-	50%   {opacity: 0;}
-	75% {opacity: 0;}
-	100% {opacity: 1;}
-}
+
+
+
+
+
+
 
 
 
@@ -573,29 +556,32 @@ a {
 		position: absolute;;
 		width: 110%;
 		height: 250px;
+		background-position: left bottom
 	}
 
 	#wave-3, #wave-2, #wave-1 {
 		transform-origin: left top 0px;
 		transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);
 		-webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);
+		-moz-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);
+		-ms-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);
 	}
 
 	#wave-3 {
-		animation-name: scrolling, bobbing;
-		animation-duration: 150s, 5s;
-		animation-timing-function: linear, ease;
-		animation-iteration-count: infinite, infinite;
-
 		-webkit-animation-name: scrolling, bobbing;
 		-webkit-animation-duration: 150s, 5s;
 		-webkit-animation-timing-function: linear, ease;
 		-webkit-animation-iteration-count: infinite, infinite; 
-
+/*
 		-moz-animation-name: scrolling, bobbing;
 		-moz-animation-duration: 150s, 5s;
 		-moz-animation-timing-function: linear, ease;
 		-moz-animation-iteration-count: infinite, infinite;
+*/
+		animation-name: scrolling, bobbing;
+		animation-duration: 150s, 5s;
+		animation-timing-function: linear, ease;
+		animation-iteration-count: infinite, infinite;
 
 		z-index: 8;
 	}
@@ -629,12 +615,12 @@ a {
 		-webkit-animation-duration: 120s, 4s;
 		-webkit-animation-timing-function: linear, ease;
 		-webkit-animation-iteration-count: infinite, infinite; 
-
+/*
 		-moz-animation-name: scrolling, bobbing;
 		-moz-animation-duration: 120s, 4s;
 		-moz-animation-timing-function: linear, ease;
 		-moz-animation-iteration-count: infinite, infinite;
-
+*/
 		z-index: 10;
 	}
 
@@ -645,19 +631,47 @@ a {
 		animation-iteration-count: infinite;
 
 		-webkit-animation-name: scrolling;
-		animation-duration: 100s;
+		-webkit-animation-duration: 100s;
 		-webkit-animation-timing-function: linear;
 		-webkit-animation-iteration-count: infinite; 
-
+/*
 		-moz-animation-name: scrolling;
-		animation-duration: 100s;
+		-moz-animation-duration: 100s;
 		-moz-animation-timing-function: linear;
 		-moz-animation-iteration-count: infinite;
-
+*/
 		z-index: 11;
 	}	
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//ANIMATIONS
+
+
+@keyframes scrolling {
+	0%		{background-position: left bottom;}
+	50%		{background-position: center bottom;}
+	100% 	{background-position: right bottom;}
+}
 @-webkit-keyframes scrolling {
 	0%		{background-position: left bottom;}
 	50%		{background-position: center bottom;}
@@ -665,23 +679,162 @@ a {
 }
 
 
-@-webkit-keyframes bobbing {
-	0%   	{transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1); -webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
-	50% 	{transform: matrix3d(1,0,0.00,0,0.00,1.04,0.00,0.0001,0,0,1,0,0,0,0,1); -webkit-transform: matrix3d(1,0,0.00,0,0.00,1.04,0.00,0.0001,0,0,1,0,0,0,0,1);}
-	100% 	{transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1); -webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
+
+
+
+
+@keyframes bobbing {
+	0%   	{transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
+	50% 	{transform: matrix3d(1,0,0.00,0,0.00,1.04,0.00,0.0001,0,0,1,0,0,0,0,1);}
+	100% 	{transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
 }
 
+@-webkit-keyframes bobbing {
+	0%   	{-webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
+	50% 	{-webkit-transform: matrix3d(1,0,0.00,0,0.00,1.04,0.00,0.0001,0,0,1,0,0,0,0,1);}
+	100% 	{-webkit-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
+}
+
+@-ms-keyframes bobbing {
+	0%   	{-ms-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
+	50% 	{-ms-transform: matrix3d(1,0,0.00,0,0.00,1.04,0.00,0.0001,0,0,1,0,0,0,0,1);}
+	100% 	{-ms-transform: matrix3d(1,0,0.00,0,0.00,1,0.00,0,0,0,1,0,0,0,0,1);}
+}
+
+
+
+
+
+
+@keyframes octopuslife {
+	0% 		{transform: rotate(0deg);}
+	100%   	{transform: rotate(360deg);}
+}
 @-webkit-keyframes octopuslife {
-	0%   	{
-		transform: rotate(0deg);
-		-webkit-transform: rotate(0deg);
-		-moz-transform: rotate(0deg);
-		-ms-transform: rotate(0deg);
-	}
-	100%   	{
-		transform: rotate(360deg);
-		-webkit-transform: rotate(360deg);
-		-moz-transform: rotate(360deg);
-		-ms-transform: rotate(360deg);
-	}
+	0%   	{-webkit-transform: rotate(0deg);}
+	100%   	{-webkit-transform: rotate(360deg);}
+}
+@-moz-keyframes octopuslife {
+	0%   	{transform: rotate(0deg);-moz-transform: rotate(0deg);}
+	100%   	{transform: rotate(360deg);-moz-transform: rotate(360deg);}
+}
+@-ms-keyframes octopuslife {
+	0%   	{-ms-transform: rotate(0deg);}
+	100%   	{-ms-transform: rotate(360deg);}
+}
+
+
+
+
+
+@keyframes foggy_one {
+	0%   {opacity: 0; transform: translate3d(0,0,0);}
+	100% {opacity: 1;transform: translate3d(0px,0px,800px);}
+}
+@-webkit-keyframes foggy_one {
+	0%   {opacity: 0;-webkit-transform: translate3d(0,0,0);}
+	100% {opacity: 1;-webkit-transform: translate3d(0px,0px,800px);}
+}
+@-moz-keyframes foggy_one {
+	0%   {opacity: 0;-moz-transform: translate3d(0,0,0);transform: translate3d(0,0,0);}
+	100% {opacity: 1;-moz-transform: translate3d(0px,0px,800px);transform: translate3d(0px,0px,800px);}
+}
+@-ms-keyframes foggy_one {
+	0%   {opacity: 0;-ms-transform: translate3d(0,0,0);}
+	100% {opacity: 1;-ms-transform: translate3d(0px,0px,800px);}
+}
+
+
+
+
+
+
+@keyframes foggy_two {
+	0%   {opacity: 0; transform: translate3d(0,0,0);}
+	25%  {opacity: 0; transform: translate3d(0,0,0);}
+	100% {opacity: 1; transform: translate3d(0px,0px,800px);}
+}
+@-webkit-keyframes foggy_two {
+	0%   {opacity: 0;-webkit-transform: translate3d(0,0,0);}
+	25%  {opacity: 0;-webkit-transform: translate3d(0,0,0);}
+	100% {opacity: 1;-webkit-transform: translate3d(0px,0px,800px);}
+}
+@-moz-keyframes foggy_two {
+	0%   {opacity: 0; -moz-transform: translate3d(0,0,0);}
+	25%  {opacity: 0; -moz-transform: translate3d(0,0,0);}
+	100% {opacity: 1; -moz-transform: translate3d(0px,0px,800px);}
+}
+@-ms-keyframes foggy_two {
+	0%   {opacity: 0; -ms-transform: translate3d(0,0,0);}
+	25%  {opacity: 0; -ms-transform: translate3d(0,0,0);}
+	100% {opacity: 1; -ms-transform: translate3d(0px,0px,800px);}
+}
+
+
+
+
+
+
+
+@keyframes foggy_three {
+	0%   {opacity: 0;}
+	25%   {opacity: 0;}
+	50%   {opacity: 0;}
+	75% {opacity: 0.5;}
+	100% {opacity: 1;}
+}
+@-webkit-keyframes foggy_three {
+	0%   {opacity: 0;}
+	25%   {opacity: 0;}
+	50%   {opacity: 0;}
+	75% {opacity: 0.5;}
+	100% {opacity: 1;}
+}
+@-moz-keyframes foggy_three {
+	0%   {opacity: 0;}
+	25%   {opacity: 0;}
+	50%   {opacity: 0;}
+	75% {opacity: 0.5;}
+	100% {opacity: 1;}
+}
+@-ms-keyframes foggy_three {
+	0%   {opacity: 0;}
+	25%   {opacity: 0;}
+	50%   {opacity: 0;}
+	75% {opacity: 0.5;}
+	100% {opacity: 1;}
+}
+
+
+
+
+
+
+@keyframes foggy_four {
+	0%   {opacity: 0;}
+	25%   {opacity: 0;}
+	50%   {opacity: 0;}
+	75% {opacity: 0;}
+	100% {opacity: 1;}
+}
+@-webkit-keyframes foggy_four {
+	0%   {opacity: 0;}
+	25%   {opacity: 0;}
+	50%   {opacity: 0;}
+	75% {opacity: 0;}
+	100% {opacity: 1;}
+}
+@-moz-keyframes foggy_four {
+	0%   {opacity: 0;}
+	25%   {opacity: 0;}
+	50%   {opacity: 0;}
+	75% {opacity: 0;}
+	100% {opacity: 1;}
+}
+@-ms-keyframes foggy_four {
+	0%   {opacity: 0;}
+	25%   {opacity: 0;}
+	50%   {opacity: 0;}
+	75% {opacity: 0;}
+	100% {opacity: 1;}
 }
