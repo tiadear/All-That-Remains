@@ -1,23 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-
 	<title>All That Remains</title>
-	<!--<link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon">
-	<link rel="icon" href="images/favicon/favicon.ico" type="image/x-icon">-->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name='description' content='All That Remains is a first person adventure game set in the future. The Earth is dying and only a few remain, fighting to survive. Available soon on PC.'>
+	<meta name="keywords" content="pc game, adventure game, screenshots, trailer, indie game, set in the future, first person">
+
+	<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+	<meta name="twitter:card" content="player">
+	<meta name="twitter:site" content="@atremains_game">
+	<meta name="twitter:title" content="All That Remains Trailer">
+	<meta name="twitter:description" content="First game trailer for soon to be released All That Remains">
+	<meta name="twitter:image" content="https://allthatremainsgame.com/images/twitterimage17.jpg">
+	<meta name="twitter:player" content="https://www.youtube.com/embed/2I6GJ3wmmjU">
+	<meta name="twitter:player:width" content="840">
+	<meta name="twitter:player:height" content="472.5">
+	<meta name="twitter:player:stream" content="">
+	<meta name="twitter:player:stream:content_type" content="">
+
+	
+	<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="images/favicon.ico" type="image/x-icon">
 
 	<link href='css/reset.css' rel='stylesheet' media='screen'>
 	<link href='css/styles.css' rel='stylesheet' media='screen'>
 	<link href='https://fonts.googleapis.com/css?family=Questrial|Fjalla+One' rel='stylesheet' type='text/css'>
-
+	
 	<script type='text/javascript' src='js/jquery-1.11.3.min.js'></script>
-	<script type='text/javascript' src='js/jquery-ui.js'></script>
-	<script type='text/javascript' src='js/foggy.js'></script>
+	<script type='text/javascript' src='js/jquery-ui.min.js'></script>
 
+	<!-- Facebook Pixel Code -->
+	<script>
+	!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+	n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+	document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+	fbq('init', '261343860917994');
+	fbq('track', "PageView");
+	fbq('track', 'ViewContent');
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=261343860917994&ev=PageView&noscript=1"
+	/></noscript>
+	<!-- End Facebook Pixel Code -->
+
+	<script>
+		jQuery(function($){
+
+		//define canvas variables
+			var	$canvas = $('#canvas');
+			var	$canvas2 = $('#canvas2');
+			var	$canvas3 = $('#canvas3');
+
+			//canvas context
+			var	ctx2 = $canvas2[0].getContext('2d');
+			var	ctx = $canvas[0].getContext('2d');
+
+			var	w = $canvas[0].width, h = $canvas[0].height;
+
+			var	img = new Image();
+			
+			// A puff.
+			var	Puff = function(p) {				
+				var	opacity,
+					sy = (Math.random()*250)>>0,
+					sx = (Math.random()*400)>>0;
+				
+				this.p = p;
+						
+				this.move = function(timeFac) {						
+					p = this.p + 0.3 * timeFac;				
+					opacity = (Math.sin(p*0.05)*0.5);						
+					if(opacity <0) {
+						p = opacity = 0;
+						sy = (Math.random()*250)>>0;
+						sx = (Math.random()*400)>>0;
+					}												
+					this.p = p;																			
+					ctx.globalAlpha = opacity;
+
+					//draw the image			
+					ctx.drawImage($canvas3[0], sx+p, sy+p, 400-(p*2),250-(p*2), 0,0, w, h);								
+				};
+			};
+			
+			var	puffs = [];			
+			var	sortPuff = function(p1,p2) { return p1.p-p2.p; };	
+			puffs.push( new Puff(0) );
+			puffs.push( new Puff(20) );
+			puffs.push( new Puff(40) );
+			
+			var	newTime, oldTime = 0, timeFac;
+					
+			var	loop = function()
+			{								
+				newTime = new Date().getTime();				
+				if(oldTime === 0 ) {
+					oldTime=newTime;
+				}
+				timeFac = (newTime-oldTime) * 0.1;
+				if(timeFac>3) {timeFac=3;}
+				oldTime = newTime;						
+				puffs.sort(sortPuff);							
+				
+				for(var i=0;i<puffs.length;i++)
+				{
+					puffs[i].move(timeFac);	
+				}					
+				ctx2.drawImage( $canvas[0] ,0,0,800,500);				
+				setTimeout(loop, 10 );				
+			};
+			// Turns out Chrome is much faster doing bitmap work if the bitmap is in an existing canvas rather
+			// than an IMG, VIDEO etc. So draw the big nebula image into canvas3
+			var	$canvas3 = $('#canvas3');
+			var	ctx3 = $canvas3[0].getContext('2d');
+			$(img).bind('load',null, function() {  ctx3.drawImage(img, 0,0, 800, 500);	loop(); });
+			var fogimg = $('#foggymcfogface').attr('src');
+			img.src = fogimg;
+		});
+	</script>
 </head>
-	<body onload="cloudywoudy();">
-
+	<body>
+			<img src="images/foggymcfogface.png" style="display:none;" id="foggymcfogface" alt="foggy background">
 			<div id="loading">
 				<canvas id="canvas" width="400" height="250" style="display: none"></canvas>
 			    <canvas id="canvas3" width="800" height="500" style="display: none"></canvas>
@@ -26,7 +132,7 @@
 
 			<!--grungy background-->
 			<div class="bg-wrap">
-				<div class="background" style="background-image: url(images/subtlegrunge_9.jpg);"></div>
+				<!--<div class="background" style="background-image: url(images/subtlegrunge_9.jpg);"></div>-->
 			</div>
 				
 				<div class="parallax">
@@ -36,61 +142,69 @@
 						<div id="page-cover"></div>
 
 						<div class="logo" id="logo">
-							<img src="images/logo-fog.png" alt="logo">
+							<img src="images/logo-fog.png" alt="All That Remains logo">
 						</div>
 
 						<div id="group1" class="parallax-group">
-	      					<div class="parallax-layer parallax-layer-1" style="background-image: url(images/landscape-1.png);"></div>
-							<div class="parallax-layer parallax-layer-2" style="background-image: url(images/landscape-2.png);"></div>
-							<div class="parallax-layer parallax-layer-3" style="background-image: url(images/landscape-3.png);"></div>
-							<div class="parallax-layer parallax-layer-4" style="background-image: url(images/landscape-4.png);"></div>
-							<div class="parallax-layer parallax-layer-5" style="background-image: url(images/landscape-5.png);"></div>
+	      					<div class="parallax-layer parallax-layer-1"></div>
+							<div class="parallax-layer parallax-layer-2"></div>
+							<div class="parallax-layer parallax-layer-3"></div>
+							<div class="parallax-layer parallax-layer-4"></div>
+							<div class="parallax-layer parallax-layer-5"></div>
 						</div>
 
 						<div id="group2" class="parallax-group">
-							<div class="parallax-layer parallax-layer-1" style="background-image: url(images/gradient.png);"></div>
+							<div class="parallax-layer parallax-layer-1"></div>
 						</div>
 
 						<div id="group3" class="parallax-group">
 							<div class="parallax-layer parallax-layer-1">
 
-								
-
 								<div class="trailer-wrap">
-									<h4>trailer</h4>
+									<h1>game trailers</h1>
 									<div class="liney"></div>
-									<div class="action">Coming soon</div>
 									<div class="trailer-container">
+										<iframe width="420" height="236.25" src="https://www.youtube.com/embed/JgiulF8iT34" frameborder="0" allowfullscreen></iframe>
+									</div>
+									<div class="trailer-container">
+										<iframe width="420" height="236.25" src="https://www.youtube.com/embed/enaJFTcXDaM" frameborder="0" allowfullscreen></iframe>
 									</div>
 								</div><!--end of trailer wrap-->
 
 								<div class="overview-wrap">
-									<h4>overview</h4>
+									<h1>overview of the game</h1>
 									<div class="liney"></div>
-									<p>All That Remains is a first person narrative experience in which the player experiences the story through the characters memories. It is set in a possible near future where most people have left for a cleaner planet, and because of this consumption of the earths resources has skyrocketed. The few that stayed behind to live out their life are now dwindling, suffering a thick poisonous smog and rogue force send back to quell those that tried to fight against the careless destruction.</p>
-									<a href="#"><div class="action">Soon to be released on Steam Greenlight</div></a>
+									<p>
+										John is one of the few left. He wanders through the city, suffering a thick poisonous smog, struggling with his memories of how he got here. Earth has been abandoned; humanity has escaped to a cleaner planet. The few that stayed behind are slowly dwindling in number, hiding from a military force who have been sent to Earth to quell those that try to fight against the careless destruction of the planet.
+										<br><br>
+										The player experiences the game through a first person narrative in which a series of flashbacks reveal how the Earth came to be this desolate wasteland. John's journey through past and present creates an emotional and memorable adventure game. 
+									</p>
+									 
+									<a href="http://steamcommunity.com/sharedfiles/filedetails/?id=746094303"><div class="action">Please vote for us on</div>
+									<img src="images/Greenlight_logo.jpg" alt="steam greenlight" class="greenlight"></a>
+
 								</div><!--end of overview wrap-->
 
 								<div class="screenshot-wrap">
-									<h4>screenshots</h4>
+									<h1>screenshots</h1>
 									<div class="liney"></div>
 									<div class="screenshot">
-										<img src="images/ATR_SS01.jpg" id="screen-1" alt="game screenshot 1">
+										<img src="images/game-screenshot_foggy-hills.jpg" id="screen-1" alt="Screenshot of landscape from game">
 									</div>
 									<div class="screenshot">
-										<img src="images/ATR_SS02.jpg" id="screen-2" alt="game screenshot 2">
+										<img src="images/game-screenshot_military-in-city.jpg" id="screen-2" alt="Screenshot of military taking over the city in the game">
 									</div>
 									<div class="screenshot">
-										<img src="images/ATR_SS03.jpg" id="screen-3" alt="game screenshot 3">
+										<img src="images/game-screenshot_military-running.jpg" id="screen-3" alt="Screenshot of the military running past">
 									</div>
 									<div class="screenshot">
-										<img src="images/ATR_SS06.jpg" id="screen-4" alt="game screenshot 4">
+										<img src="images/game-screenshot_house-with-blood-on-walls.jpg" id="screen-4" alt="Screenshot of a house with blood splattered walls from the game">
 									</div>
 								</div><!--end of screenshot wrap-->
 
 								<div class="details-wrap">
 									<div class="details">
-										<h4>creators</h4>
+										<h1>creators</h1>
 										<p>
 											Design/Lead: Ben Lovegrove<br>
 											Programming: Huxley Dowling<br>
@@ -99,10 +213,10 @@
 										<p>
 									</div>
 									<div class="details right">
-										<h4>details</h4>
+										<h1>game details</h1>
 										<p>
 											Platform: PC<br>
-											Genre: Adventure, walking simulator, narrative<br>
+											Genre: Adventure game, walking simulator, narrative<br>
 											Players: Single<br>
 											Playtime: 20-40m<br>
 											Language: English<br>
@@ -111,6 +225,8 @@
 								</div><!--end of details wrap-->
 
 								<div class="social-wrap">
+
+									<!-- social media icons-->
 									<a href="https://twitter.com/atremains_game">
 										<div class="social">
 											<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -142,15 +258,42 @@
 											</svg>
 										</div>
 									</a>
+
+									<!-- Begin MailChimp Signup Form -->
+									<div id="mc_embed_signup">
+
+										<form action="https://allthatremainsgame.us13.list-manage.com/subscribe/post?u=5c21ee6a1ba523fddcb6f1667&amp;id=bfe1c9724d" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+										    <div id="mc_embed_signup_scroll">
+												<h3>Join our mailing list to stay up to date</h3>
+
+												<div class="mc-field-group">
+													<label for="mce-EMAIL">Email Address </label>
+													<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+												</div>
+
+												<div id="mce-responses" class="clear">
+													<div class="response" id="mce-error-response" style="display:none"></div>
+													<div class="response" id="mce-success-response" style="display:none"></div>
+												</div>
+
+											    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_5c21ee6a1ba523fddcb6f1667_bfe1c9724d" tabindex="-1" value=""></div>
+											    <div class="clear">
+											    	<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+											    </div>
+										    </div>
+										</form>
+									</div>
+									<!--End mc_embed_signup-->
+
 								</div><!--end of social wrap-->
 
 								<div class="wavy-shmavy">
-									<div class="wavy" id="wave-3" style="background-image: url(images/waves-3.png);"></div>
+									<div class="wavy" id="wave-3"></div>
 									<div class="not-a-wave">
 										<img src="images/octopus.png" alt="octopus">
 									</div>
-									<div class="wavy" id="wave-2" style="background-image: url(images/waves-2.png);"></div>
-									<div class="wavy" id="wave-1" style="background-image: url(images/waves-1.png);"></div>
+									<div class="wavy" id="wave-2"></div>
+									<div class="wavy" id="wave-1"></div>
 								</div>
 
 							</div><!--end of parallax-layer-->
@@ -163,31 +306,64 @@
 					
 				<!-- foggy wogggy-->
 				<div class="fog">
-					<div class="foggy-woggy" id="fog-1" style="background-image: url(images/fog-1.png);"></div>
-					<div class="foggy-woggy" id="fog-2" style="background-image: url(images/fog-2.png);"></div>
-					<div class="foggy-woggy" id="fog-3" style="background-image: url(images/fog-3.png);"></div>
-					<div class="foggy-woggy" id="fog-4" style="background-image: url(images/fog-4.png);"></div>
-					<div class="foggy-woggy" id="fog-5" style="background-image: url(images/fog-5.png);"></div>
-					<div class="foggy-woggy" id="fog-6" style="background-image: url(images/fog-6.png);"></div>
-					<div class="foggy-woggy" id="fog-7" style="background-image: url(images/fog-7.png);"></div>
-					<div class="foggy-woggy" id="fog-8" style="background-image: url(images/fog-8.png);"></div>
-					<div class="foggy-woggy" id="fog-9" style="background-image: url(images/fog-9.png);"></div>
-					<div class="foggy-woggy" id="fog-10" style="background-image: url(images/fog-10.png);"></div>
-					<div class="foggy-woggy" id="fog-11" style="background-image: url(images/fog-11.png);"></div>
-					<div class="foggy-woggy" id="fog-12" style="background-image: url(images/fog-12.png);"></div>
-					<div class="foggy-woggy" id="fog-13" style="background-image: url(images/fog-13.png);"></div>
-					<div class="foggy-woggy" id="fog-14" style="background-image: url(images/fog-14.png);"></div>
-					<div class="foggy-woggy" id="fog-15" style="background-image: url(images/fog-15.png);"></div>
-					<div class="foggy-woggy" id="fog-16" style="background-image: url(images/fog-16.png);"></div>
-					<div class="foggy-woggy" id="fog-17" style="background-image: url(images/fog-17.png);"></div>
-					<div class="foggy-woggy" id="fog-18" style="background-image: url(images/fog-18.png);"></div>
-					<div class="foggy-woggy" id="fog-19" style="background-image: url(images/fog-19.png);"></div>
-					<div class="foggy-woggy" id="fog-20" style="background-image: url(images/fog-20.png);"></div>
-					<div class="foggy-woggy" id="fog-21" style="background-image: url(images/fog-21.png);"></div>
-					<div class="foggy-woggy" id="fog-22" style="background-image: url(images/fog-22.png);"></div>
-					<div class="foggy-woggy" id="fog-23" style="background-image: url(images/fog-23.png);"></div>
-					<div class="foggy-woggy" id="fog-24" style="background-image: url(images/fog-24.png);"></div>
+					<div class="foggy-woggy" id="fog-1"></div>
+					<div class="foggy-woggy" id="fog-2"></div>
+					<div class="foggy-woggy" id="fog-3"></div>
+					<div class="foggy-woggy" id="fog-4"></div>
+					<div class="foggy-woggy" id="fog-5"></div>
+					<div class="foggy-woggy" id="fog-6"></div>
+					<div class="foggy-woggy" id="fog-7"></div>
+					<div class="foggy-woggy" id="fog-8"></div>
+					<div class="foggy-woggy" id="fog-9"></div>
+					<div class="foggy-woggy" id="fog-10"></div>
+					<div class="foggy-woggy" id="fog-11"></div>
+					<div class="foggy-woggy" id="fog-12"></div>
+					<div class="foggy-woggy" id="fog-13"></div>
+					<div class="foggy-woggy" id="fog-14"></div>
+					<div class="foggy-woggy" id="fog-15"></div>
+					<div class="foggy-woggy" id="fog-16"></div>
+					<div class="foggy-woggy" id="fog-17"></div>
+					<div class="foggy-woggy" id="fog-18"></div>
+					<div class="foggy-woggy" id="fog-19"></div>
+					<div class="foggy-woggy" id="fog-20"></div>
+					<div class="foggy-woggy" id="fog-21"></div>
+					<div class="foggy-woggy" id="fog-22"></div>
+					<div class="foggy-woggy" id="fog-23"></div>
+					<div class="foggy-woggy" id="fog-24"></div>
 				</div>
+
+			<script type='text/javascript' src='js/mc-validate.js'></script>
+
+			<script type='text/javascript'>(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
+
+			<script>
+
+				//on load complete
+				function pageReady() {
+					console.log('page ready');
+					$("#logo").fadeIn(4000, function(){
+						$('#page-cover').fadeOut(3000);
+						$('.fog').fadeIn(1000);
+					});
+					$("#loading").fadeOut(9000);
+				}
+
+			    $(window).load(function(){
+					setTimeout(pageReady,4000);
+			    });
+
+			</script>
+
+			<script>
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+				(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+				m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+				})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+				ga('create', 'UA-81690084-1', 'auto');
+				ga('send', 'pageview');
+
+			</script>
 
 	</body>
 </html>

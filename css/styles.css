@@ -11,7 +11,7 @@ body, html {
 body {
   height: 100%; }
 
-h4 {
+h1 {
   font-family: "Fjalla One", sans-serif;
   font-weight: 400;
   font-size: 2.5em;
@@ -20,11 +20,27 @@ h4 {
   color: #3d4140;
   text-transform: uppercase; }
   @media screen and (max-width: 1000px) {
-    h4 {
+    h1 {
       font-size: 2em; } }
   @media screen and (max-width: 700px) {
-    h4 {
+    h1 {
       font-size: 1.5em; } }
+
+h2 {
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 400;
+  font-size: 1.3em;
+  line-height: 1.2em;
+  color: #3d4140;
+  text-transform: uppercase; }
+
+h3 {
+  font-family: "Fjalla One", sans-serif;
+  font-weight: 400;
+  font-size: 1.2em;
+  line-height: 1.2em;
+  color: #3d4140;
+  text-transform: uppercase; }
 
 p {
   font-family: "Questrial", sans-serif;
@@ -63,7 +79,7 @@ a {
     height: 100%; }
 
 .logo {
-  width: 200px;
+  width: 130px;
   position: absolute;
   display: none;
   padding-top: 30px;
@@ -73,6 +89,9 @@ a {
   -moz-transform: translate3d(-50%, 0%, 0);
   -ms-transform: translate3d(-50%, 0%, 0);
   transform: translate3d(-50%, 0%, 0); }
+  @media screen and (max-width: 500px) {
+    .logo {
+      width: 150px; } }
   .logo img {
     width: 100%;
     height: auto; }
@@ -86,7 +105,7 @@ a {
   z-index: 0; }
   .bg-wrap .background {
     height: 100%;
-    opacity: 0.2;
+    opacity: 0.5;
     background-size: cover;
     background-position: 50%; }
 
@@ -123,38 +142,64 @@ a {
       bottom: 0;
       width: 100%;
       background-position: 50% 100%;
-      background-size: auto 910px;
+      background-size: auto 700px;
       background-repeat: repeat-x; }
+      @media screen and (max-width: 2000px) {
+        .parallax .parallax-group .parallax-layer {
+          background-size: auto 500px; } }
+      @media screen and (max-width: 1100px) {
+        .parallax .parallax-group .parallax-layer {
+          background-size: auto 300px; } }
     .parallax .parallax-group .parallax-layer-1 {
       -webkit-transform: translateZ(0);
       -moz-transform: translateZ(0);
       -ms-transform: translateZ(0);
       transform: translateZ(0);
-      z-index: 7; }
+      z-index: 7;
+      background-image: url("../images/landscape-1.png"); }
+      @media screen and (max-width: 1100px) {
+        .parallax .parallax-group .parallax-layer-1 {
+          background-image: url("../images/landscape-1-1000.png"); } }
     .parallax .parallax-group .parallax-layer-2 {
       -webkit-transform: translateZ(-0.2px) scale(1.2);
       -moz-transform: translateZ(-0.2px) scale(1.2);
       -ms-transform: translateZ(-0.2px) scale(1.2);
       transform: translateZ(-0.2px) scale(1.2);
-      z-index: 6; }
+      z-index: 6;
+      background-image: url("../images/landscape-2.png"); }
+      @media screen and (max-width: 1100px) {
+        .parallax .parallax-group .parallax-layer-2 {
+          background-image: url("../images/landscape-2-1000.png"); } }
     .parallax .parallax-group .parallax-layer-3 {
       -webkit-transform: translateZ(-0.4px) scale(1.4);
       -moz-transform: translateZ(-0.4px) scale(1.4);
       -ms-transform: translateZ(-0.4px) scale(1.4);
       transform: translateZ(-0.4px) scale(1.4);
-      z-index: 5; }
+      z-index: 5;
+      background-image: url("../images/landscape-3.png"); }
+      @media screen and (max-width: 1100px) {
+        .parallax .parallax-group .parallax-layer-3 {
+          background-image: url("../images/landscape-3-1000.png"); } }
     .parallax .parallax-group .parallax-layer-4 {
       -webkit-transform: translateZ(-0.6px) scale(1.6);
       -moz-transform: translateZ(-0.6px) scale(1.6);
       -ms-transform: translateZ(-0.6px) scale(1.6);
       transform: translateZ(-0.6px) scale(1.6);
-      z-index: 4; }
+      z-index: 4;
+      background-image: url("../images/landscape-4.png"); }
+      @media screen and (max-width: 1100px) {
+        .parallax .parallax-group .parallax-layer-4 {
+          background-image: url("../images/landscape-4-1000.png"); } }
     .parallax .parallax-group .parallax-layer-5 {
       -webkit-transform: translateZ(-0.8px) scale(1.8);
       -moz-transform: translateZ(-0.8px) scale(1.8);
       -ms-transform: translateZ(-0.8px) scale(1.8);
       transform: translateZ(-0.8px) scale(1.8);
-      z-index: 3; }
+      z-index: 3;
+      background-image: url("../images/landscape-5.png"); }
+      @media screen and (max-width: 1100px) {
+        .parallax .parallax-group .parallax-layer-5 {
+          background-image: url("../images/landscape-5-1000.png"); } }
   .parallax #group1 {
     z-index: 2; }
   .parallax #group2 {
@@ -166,16 +211,17 @@ a {
     .parallax #group2 .parallax-layer-1 {
       background-position: 50% 0;
       background-size: auto 740px;
-      background-size: cover; }
-      @media screen and (max-width: 700px) {
+      background-image: url("../images/gradient.png"); }
+      @media screen and (max-width: 1100px) {
         .parallax #group2 .parallax-layer-1 {
           background-size: auto 500px; } }
   .parallax #group3 .parallax-layer-1 {
-    z-index: 3; }
+    z-index: 3;
+    background-image: none; }
     .parallax #group3 .parallax-layer-1 .trailer-wrap, .parallax #group3 .parallax-layer-1 .overview-wrap, .parallax #group3 .parallax-layer-1 .screenshot-wrap, .parallax #group3 .parallax-layer-1 .details-wrap, .parallax #group3 .parallax-layer-1 .social-wrap {
       width: 100%;
       position: relative; }
-      .parallax #group3 .parallax-layer-1 .trailer-wrap h4, .parallax #group3 .parallax-layer-1 .overview-wrap h4, .parallax #group3 .parallax-layer-1 .screenshot-wrap h4, .parallax #group3 .parallax-layer-1 .details-wrap h4, .parallax #group3 .parallax-layer-1 .social-wrap h4 {
+      .parallax #group3 .parallax-layer-1 .trailer-wrap h1, .parallax #group3 .parallax-layer-1 .overview-wrap h1, .parallax #group3 .parallax-layer-1 .screenshot-wrap h1, .parallax #group3 .parallax-layer-1 .details-wrap h1, .parallax #group3 .parallax-layer-1 .social-wrap h1 {
         padding-bottom: 10px; }
       .parallax #group3 .parallax-layer-1 .trailer-wrap .liney, .parallax #group3 .parallax-layer-1 .overview-wrap .liney, .parallax #group3 .parallax-layer-1 .screenshot-wrap .liney, .parallax #group3 .parallax-layer-1 .details-wrap .liney, .parallax #group3 .parallax-layer-1 .social-wrap .liney {
         width: 100px;
@@ -184,34 +230,29 @@ a {
         margin: 10px auto 20px auto; }
     .parallax #group3 .parallax-layer-1 .trailer-wrap {
       padding-top: 50px;
-      text-align: center; }
+      margin: 0 auto;
+      text-align: center;
+      width: 50%; }
       @media screen and (max-width: 1100px) {
         .parallax #group3 .parallax-layer-1 .trailer-wrap {
-          padding-top: 0px; } }
-      .parallax #group3 .parallax-layer-1 .trailer-wrap .action {
-        color: #3d4140;
-        margin: 30px auto;
-        height: auto;
-        width: 300px;
-        padding: 10px 20px;
-        background: #f3f1f1;
-        border: 2.5px solid #3d4140;
-        font-family: "Fjalla One", sans-serif;
-        font-weight: 400;
-        font-size: 1.2em;
-        line-height: 1.2em;
-        letter-spacing: 0.1em;
-        text-transform: uppercase;
-        position: relative; }
-        @media screen and (max-width: 700px) {
-          .parallax #group3 .parallax-layer-1 .trailer-wrap .action {
-            width: 70%; } }
+          padding-top: 0px;
+          width: 70%; } }
+      @media screen and (max-width: 700px) {
+        .parallax #group3 .parallax-layer-1 .trailer-wrap {
+          width: 90%; } }
       .parallax #group3 .parallax-layer-1 .trailer-wrap .trailer-container {
-        width: 800px;
-        height: 450px;
-        background-color: #1a1a1b;
-        display: none;
-        margin: 0 auto; }
+        position: relative;
+        padding-bottom: 56.25%;
+        /* 16:9 */
+        padding-top: 25px;
+        height: 0;
+        margin-bottom: 30px; }
+        .parallax #group3 .parallax-layer-1 .trailer-wrap .trailer-container iframe {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%; }
     .parallax #group3 .parallax-layer-1 .overview-wrap {
       padding-top: 200px;
       margin: 0 auto;
@@ -219,68 +260,84 @@ a {
       text-align: center; }
       @media screen and (max-width: 1100px) {
         .parallax #group3 .parallax-layer-1 .overview-wrap {
-          width: 80%;
-          padding-top: 100px; } }
+          width: 80%; } }
       .parallax #group3 .parallax-layer-1 .overview-wrap a .action {
-        color: #3d4140;
-        margin: 30px auto;
-        height: auto;
-        width: 500px;
-        padding: 10px 20px;
-        background: #f3f1f1;
-        border: 2.5px solid #3d4140;
-        font-family: "Fjalla One", sans-serif;
-        text-transform: uppercase;
-        cursor: pointer;
-        position: relative;
-        -webkit-transform: translateZ(0);
-        -moz-transform: translateZ(0);
-        -ms-transform: translateZ(0);
-        transform: translateZ(0);
-        -webkit-transition-property: color;
-        -moz-transition-property: color;
-        -ms-transition-property: color;
-        transition-property: color;
-        -webkit-transition-duration: 0.6s;
-        -moz-transition-duration: 0.6s;
-        -ms-transition-duration: 0.6s;
-        transition-duration: 0.6s; }
-        @media screen and (max-width: 1100px) {
-          .parallax #group3 .parallax-layer-1 .overview-wrap a .action {
-            width: 80%; } }
-        @media screen and (max-width: 700px) {
-          .parallax #group3 .parallax-layer-1 .overview-wrap a .action {
-            width: 85%; } }
-        .parallax #group3 .parallax-layer-1 .overview-wrap a .action:before {
-          content: "August 5th";
-          padding: 10px 20px;
-          position: absolute;
-          z-index: 7;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background: #3d4140;
-          color: #f3f1f1;
-          -webkit-transform: scaleX(0);
-          -moz-transform: scaleX(0);
-          -ms-transform: scaleX(0);
-          transform: scaleX(0);
-          -webkit-transform-origin: 0 50%;
-          -moz-transform-origin: 0 50%;
-          -ms-transform-origin: 0 50%;
-          transform-origin: 0 50%;
-          -webkit-transition: transform 0.6s ease-out;
-          -moz-transition: transform 0.6s ease-out;
-          -ms-transition: transform 0.6s ease-out;
-          transition: transform 0.6s ease-out; }
-        .parallax #group3 .parallax-layer-1 .overview-wrap a .action:hover, .parallax #group3 .parallax-layer-1 .overview-wrap a .action:focus, .parallax #group3 .parallax-layer-1 .overview-wrap a .action:active {
-          color: #f3f1f1; }
-        .parallax #group3 .parallax-layer-1 .overview-wrap a .action:hover:before, .parallax #group3 .parallax-layer-1 .overview-wrap a .action:focus:before, .parallax #group3 .parallax-layer-1 .overview-wrap a .action:active:before {
-          -webkit-transform: scaleX(1);
-          -moz-transform: scaleX(1);
-          -ms-transform: scaleX(1);
-          transform: scaleX(1); }
+        border: none;
+        background: none; }
+      .parallax #group3 .parallax-layer-1 .overview-wrap .greenlight {
+        width: 200px;
+        height: auto; }
+    .parallax #group3 .parallax-layer-1 a .action {
+      color: #3d4140;
+      margin: 30px auto 10px;
+      height: auto;
+      width: 500px;
+      padding: 10px 20px;
+      background: #f3f1f1;
+      border: 2.5px solid #3d4140;
+      font-family: "Fjalla One", sans-serif;
+      font-size: 1em;
+      letter-spacing: 0;
+      text-transform: uppercase;
+      cursor: pointer;
+      position: relative;
+      -webkit-transform: translateZ(0);
+      -moz-transform: translateZ(0);
+      -ms-transform: translateZ(0);
+      transform: translateZ(0);
+      -webkit-transition-property: color;
+      -moz-transition-property: color;
+      -ms-transition-property: color;
+      transition-property: color;
+      -webkit-transition-duration: 0.6s;
+      -moz-transition-duration: 0.6s;
+      -ms-transition-duration: 0.6s;
+      transition-duration: 0.6s;
+      						    /*
+      						    &:before {
+      						    	padding: 10px 20px;
+      							    position: absolute;
+      							    z-index: 7;
+      							    top: 0;
+      							    left: 0;
+      							    right: 0;
+      							    bottom: 0;
+      							    background: $grey;
+      							    color: $notwhite;
+      
+      							    -webkit-transform: scaleX(0);
+      							    -moz-transform: scaleX(0);
+      							    -ms-transform: scaleX(0);
+      							    transform: scaleX(0);
+      
+      							    -webkit-transform-origin: 0 50%;
+      							    -moz-transform-origin: 0 50%;
+      							    -ms-transform-origin: 0 50%;
+      							    transform-origin: 0 50%;
+      
+      							    -webkit-transition: transform 0.6s ease-out;
+      							    -moz-transition: transform 0.6s ease-out;
+      							    -ms-transition: transform 0.6s ease-out;
+      							    transition: transform 0.6s ease-out;
+      						    }
+      			
+      						    &:hover, &:focus, &:active {
+      						    	color: $notwhite;
+      						    }
+      
+      						    &:hover:before, &:focus:before, &:active:before {
+      						    	-webkit-transform: scaleX(1);
+      						    	-moz-transform: scaleX(1);
+      						    	-ms-transform: scaleX(1);
+      							  	transform: scaleX(1);
+      						    }
+      						    */ }
+      @media screen and (max-width: 1100px) {
+        .parallax #group3 .parallax-layer-1 a .action {
+          width: 80%; } }
+      @media screen and (max-width: 700px) {
+        .parallax #group3 .parallax-layer-1 a .action {
+          width: 85%; } }
     .parallax #group3 .parallax-layer-1 .screenshot-wrap {
       padding-top: 200px;
       width: 80%;
@@ -335,6 +392,10 @@ a {
       width: 70%;
       margin: 0 auto;
       text-align: center; }
+      @media screen and (max-width: 700px) {
+        .parallax #group3 .parallax-layer-1 .social-wrap {
+          width: 100%;
+          padding: 100px 20px; } }
       .parallax #group3 .parallax-layer-1 .social-wrap a .social {
         width: 50px;
         height: 50px;
@@ -344,38 +405,60 @@ a {
         margin: 0 25px; }
         .parallax #group3 .parallax-layer-1 .social-wrap a .social:hover .st0 {
           fill: #37aa9c; }
+      .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup {
+        width: 70%;
+        margin: 50px auto 0px;
+        border: solid 2px #3d4140;
+        position: relative;
+        background: #f3f1f1;
+        clear: left; }
+        @media screen and (max-width: 1100px) {
+          .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup {
+            width: 90%; } }
+        @media screen and (max-width: 700px) {
+          .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup {
+            width: 100%; } }
+        .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll {
+          font-family: "Questrial", sans-serif;
+          font-size: 1em;
+          text-align: center; }
+          .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll h3 {
+            color: #37aa9c; }
+          .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll .mc-field-group {
+            padding: 30px; }
+            @media screen and (max-width: 500px) {
+              .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll .mc-field-group {
+                padding: 10px; } }
+            .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll .mc-field-group .mce_inline_error {
+              background-color: #f3f1f1; }
+          .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll #mce-responses {
+            float: none;
+            margin: 0 auto;
+            width: 100%;
+            padding: 10px; }
+            .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll #mce-responses .response {
+              margin: 0 auto;
+              float: none;
+              padding: 10px; }
+              .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll #mce-responses .response#mce-success-response {
+                color: #37aa9c; }
+          .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll .button {
+            background: #3d4140;
+            margin: 0 auto;
+            font-family: "Questrial", sans-serif;
+            font-size: 1.2em;
+            color: #f3f1f1; }
+            .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll .button:hover {
+              background: #a6d9c6; }
+            .parallax #group3 .parallax-layer-1 .social-wrap #mc_embed_signup #mc-embedded-subscribe-form #mc_embed_signup_scroll .button:focus {
+              border: solid; }
 
 .fog {
   width: 100%;
   position: relative;
+  display: none;
   background: url(#);
-  /* because IE is nuts */
-  /*
-  	#fog-1 {z-index: 11;}
-  	#fog-2 {z-index: 12;}
-  	#fog-3 {z-index: 13;}
-  	#fog-4 {z-index: 14;}
-  	#fog-5 {z-index: 15;}
-  	#fog-6 {z-index: 16;}
-  	#fog-7 {z-index: 17;}
-  	#fog-8 {z-index: 18;}
-  	#fog-9 {z-index: 19;}
-  	#fog-10 {z-index: 20;}
-  	#fog-11 {z-index: 21;}
-  	#fog-12 {z-index: 22;}
-  	#fog-13 {z-index: 23;}
-  	#fog-14 {z-index: 24;}
-  	#fog-15 {z-index: 25;}
-  	#fog-16 {z-index: 26;}
-  	#fog-17 {z-index: 27;}
-  	#fog-18 {z-index: 28;}
-  	#fog-19 {z-index: 29;}
-  	#fog-20 {z-index: 30;}
-  	#fog-21 {z-index: 31;}
-  	#fog-22 {z-index: 32;}
-  	#fog-23 {z-index: 33;}
-  	#fog-24 {z-index: 34;}
-  */ }
+  /* because IE is nuts */ }
   .fog .foggy-woggy {
     width: 100%;
     height: 100%;
@@ -387,6 +470,54 @@ a {
       .fog .foggy-woggy {
         background-size: cover;
         background-position: 50% 50%; } }
+  .fog #fog-1 {
+    background-image: url("../images/fog-1.png"); }
+  .fog #fog-2 {
+    background-image: url("../images/fog-2.png"); }
+  .fog #fog-3 {
+    background-image: url("../images/fog-3.png"); }
+  .fog #fog-4 {
+    background-image: url("../images/fog-4.png"); }
+  .fog #fog-5 {
+    background-image: url("../images/fog-5.png"); }
+  .fog #fog-6 {
+    background-image: url("../images/fog-6.png"); }
+  .fog #fog-7 {
+    background-image: url("../images/fog-7.png"); }
+  .fog #fog-8 {
+    background-image: url("../images/fog-8.png"); }
+  .fog #fog-9 {
+    background-image: url("../images/fog-9.png"); }
+  .fog #fog-10 {
+    background-image: url("../images/fog-10.png"); }
+  .fog #fog-11 {
+    background-image: url("../images/fog-11.png"); }
+  .fog #fog-12 {
+    background-image: url("../images/fog-12.png"); }
+  .fog #fog-13 {
+    background-image: url("../images/fog-13.png"); }
+  .fog #fog-14 {
+    background-image: url("../images/fog-14.png"); }
+  .fog #fog-15 {
+    background-image: url("../images/fog-15.png"); }
+  .fog #fog-16 {
+    background-image: url("../images/fog-16.png"); }
+  .fog #fog-17 {
+    background-image: url("../images/fog-17.png"); }
+  .fog #fog-18 {
+    background-image: url("../images/fog-18.png"); }
+  .fog #fog-19 {
+    background-image: url("../images/fog-19.png"); }
+  .fog #fog-20 {
+    background-image: url("../images/fog-20.png"); }
+  .fog #fog-21 {
+    background-image: url("../images/fog-21.png"); }
+  .fog #fog-22 {
+    background-image: url("../images/fog-22.png"); }
+  .fog #fog-23 {
+    background-image: url("../images/fog-23.png"); }
+  .fog #fog-24 {
+    background-image: url("../images/fog-24.png"); }
   .fog #fog-1, .fog #fog-3, .fog #fog-4, .fog #fog-8, .fog #fog-22, .fog #fog-23, .fog #fog-24 {
     opacity: 0;
     animation: foggy_one 8s alternate linear infinite;
@@ -432,6 +563,7 @@ a {
     -moz-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
     -ms-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
   .wavy-shmavy #wave-3 {
+    background-image: url("../images/waves-3.png");
     -webkit-animation-name: scrolling, bobbing;
     -webkit-animation-duration: 150s, 5s;
     -webkit-animation-timing-function: linear, ease;
@@ -449,10 +581,10 @@ a {
     z-index: 8; }
   .wavy-shmavy .not-a-wave {
     position: absolute;
-    width: 30px;
+    width: 25px;
     height: auto;
     left: 85%;
-    bottom: 20%;
+    bottom: 15%;
     z-index: 9;
     animation: octopuslife 30s ease infinite;
     -webkit-animation: octopuslife 30s ease infinite;
@@ -463,6 +595,7 @@ a {
       width: 100%;
       height: auto; }
   .wavy-shmavy #wave-2 {
+    background-image: url("../images/waves-2.png");
     animation-name: scrolling, bobbing;
     animation-duration: 120s, 4s;
     animation-timing-function: linear, ease;
@@ -479,6 +612,7 @@ a {
     */
     z-index: 10; }
   .wavy-shmavy #wave-1 {
+    background-image: url("../images/waves-1.png");
     animation-name: scrolling;
     animation-duration: 100s;
     animation-timing-function: linear;
@@ -497,18 +631,18 @@ a {
 
 @keyframes scrolling {
   0% {
-    background-position: left bottom; }
+    background-position: 0% 100%; }
   50% {
-    background-position: center bottom; }
+    background-position: 50% 100%; }
   100% {
-    background-position: right bottom; } }
+    background-position: 100% 100%; } }
 @-webkit-keyframes scrolling {
   0% {
-    background-position: left bottom; }
+    background-position: 0% 100%; }
   50% {
-    background-position: center bottom; }
+    background-position: 50% 100%; }
   100% {
-    background-position: right bottom; } }
+    background-position: 100% 100%; } }
 @keyframes bobbing {
   0% {
     transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1); }
@@ -710,5 +844,212 @@ a {
     opacity: 0; }
   100% {
     opacity: 1; } }
+/* MailChimp Form Embed Code - Classic - 12/17/2015 v10.7 */
+#mc_embed_signup form {
+  display: block;
+  position: relative;
+  text-align: left;
+  padding: 10px 10px 10px 3%; }
+
+#mc_embed_signup h2 {
+  padding: 0;
+  margin: 15px 0;
+  font-size: 1.4em; }
+
+#mc_embed_signup input {
+  border: 1px solid #ABB0B2;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px; }
+
+#mc_embed_signup input[type=checkbox] {
+  -webkit-appearance: checkbox; }
+
+#mc_embed_signup input[type=radio] {
+  -webkit-appearance: radio; }
+
+#mc_embed_signup input:focus {
+  border-color: #333; }
+
+#mc_embed_signup .button {
+  clear: both;
+  background-color: #aaa;
+  border: 0 none;
+  border-radius: 4px;
+  transition: all 0.23s ease-in-out 0s;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: normal;
+  height: 32px;
+  line-height: 32px;
+  margin: 0 5px 10px 0;
+  padding: 0 22px;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+  white-space: nowrap;
+  width: auto; }
+
+#mc_embed_signup .button:hover {
+  background-color: #777; }
+
+#mc_embed_signup .small-meta {
+  font-size: 11px; }
+
+#mc_embed_signup .nowrap {
+  white-space: nowrap; }
+
+#mc_embed_signup .mc-field-group {
+  clear: left;
+  position: relative;
+  width: 96%;
+  padding-bottom: 3%;
+  min-height: 50px; }
+
+#mc_embed_signup .size1of2 {
+  clear: none;
+  float: left;
+  display: inline-block;
+  width: 46%;
+  margin-right: 4%; }
+
+* html #mc_embed_signup .size1of2 {
+  margin-right: 2%;
+  /* Fix for IE6 double margins. */ }
+
+#mc_embed_signup .mc-field-group label {
+  display: block;
+  margin-bottom: 3px; }
+
+#mc_embed_signup .mc-field-group input {
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+  text-indent: 2%; }
+
+#mc_embed_signup .mc-field-group select {
+  display: inline-block;
+  width: 99%;
+  padding: 5px 0;
+  margin-bottom: 2px; }
+
+#mc_embed_signup .datefield, #mc_embed_signup .phonefield-us {
+  padding: 5px 0; }
+
+#mc_embed_signup .datefield input, #mc_embed_signup .phonefield-us input {
+  display: inline;
+  width: 60px;
+  margin: 0 2px;
+  letter-spacing: 1px;
+  text-align: center;
+  padding: 5px 0 2px 0; }
+
+#mc_embed_signup .phonefield-us .phonearea input, #mc_embed_signup .phonefield-us .phonedetail1 input {
+  width: 40px; }
+
+#mc_embed_signup .datefield .monthfield input, #mc_embed_signup .datefield .dayfield input {
+  width: 30px; }
+
+#mc_embed_signup .datefield label, #mc_embed_signup .phonefield-us label {
+  display: none; }
+
+#mc_embed_signup .indicates-required {
+  text-align: right;
+  font-size: 11px;
+  margin-right: 4%; }
+
+#mc_embed_signup .asterisk {
+  color: #e85c41;
+  font-size: 150%;
+  font-weight: normal;
+  position: relative;
+  top: 5px; }
+
+#mc_embed_signup .clear {
+  clear: both; }
+
+#mc_embed_signup .mc-field-group.input-group ul {
+  margin: 0;
+  padding: 5px 0;
+  list-style: none; }
+
+#mc_embed_signup .mc-field-group.input-group ul li {
+  display: block;
+  padding: 3px 0;
+  margin: 0; }
+
+#mc_embed_signup .mc-field-group.input-group label {
+  display: inline; }
+
+#mc_embed_signup .mc-field-group.input-group input {
+  display: inline;
+  width: auto;
+  border: none; }
+
+#mc_embed_signup div#mce-responses {
+  float: left;
+  top: -1.4em;
+  padding: 0em .5em 0em .5em;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 5%;
+  clear: both; }
+
+#mc_embed_signup div.response {
+  margin: 1em 0;
+  padding: 1em .5em .5em 0;
+  font-weight: bold;
+  float: left;
+  top: -1.5em;
+  z-index: 1;
+  width: 80%; }
+
+#mc_embed_signup #mce-error-response {
+  display: none; }
+
+#mc_embed_signup #mce-success-response {
+  color: #529214;
+  display: none; }
+
+#mc_embed_signup label.error {
+  display: block;
+  float: none;
+  width: auto;
+  margin-left: 1.05em;
+  text-align: left;
+  padding: .5em 0; }
+
+#mc-embedded-subscribe {
+  clear: both;
+  width: auto;
+  display: block;
+  margin: 1em 0 1em 5%; }
+
+#mc_embed_signup #num-subscribers {
+  font-size: 1.1em; }
+
+#mc_embed_signup #num-subscribers span {
+  padding: .5em;
+  border: 1px solid #ccc;
+  margin-right: .5em;
+  font-weight: bold; }
+
+#mc_embed_signup #mc-embedded-subscribe-form div.mce_inline_error {
+  display: inline-block;
+  margin: 2px 0 1em 0;
+  padding: 5px 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: normal;
+  z-index: 1;
+  color: #e85c41; }
+
+#mc_embed_signup #mc-embedded-subscribe-form input.mce_inline_error {
+  border: 2px solid #e85c41; }
 
 /*# sourceMappingURL=styles.css.map */
